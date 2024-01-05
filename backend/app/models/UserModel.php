@@ -2,16 +2,15 @@
 
 
 
-require 'Model.php';
+require 'BaseModel.php';
 
-use app\models\Model;
+// use app\models\BaseModel;
 
-class UserModel extends Model
+class UserModel extends BaseModel
 {
 
     private $id;
     private $username;
-    private $email;
     private $password;
     private $role;
 
@@ -39,13 +38,6 @@ class UserModel extends Model
 
 
 
-    // Setter for email
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    }
-
-
 
     // Setter for password
     public function setPassword($password)
@@ -70,19 +62,11 @@ class UserModel extends Model
             ->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // create user  by passing username email password and role
-    public function create()
-    {
-
-        $sqlState = static::database()->prepare("INSERT INTO `users`(`username`, `email`, `password`, `role`) VALUES ('?','?','?','?')");
-        return $sqlState->execute([$this->username, $this->email, $this->password]);
-    }
-
 
     //update user
     public function update()
     {
-
+        //pre sql query
         $sql = "UPDATE users SET ";
         $params = [];
 
@@ -99,7 +83,7 @@ class UserModel extends Model
             $params[] = $this->role;
         }
 
-        
+
         // Remove the trailing comma and space from  string
         $sql = rtrim($sql, ", ");
 
@@ -109,5 +93,38 @@ class UserModel extends Model
         $sqlState = static::database()->prepare($sql);
 
         return $sqlState->execute($params);
+    }
+
+
+
+
+    // block user
+    public static function  blockUser($userID)
+    {
+
+        //archived all posts belong user admin wnats block 
+        $archivPosts = self::database()->prepare("UPDATE posts SET archived = 0 WHERE user_id = ?");
+        $archivPosts->execute([$userID]);
+
+        //if archived his post  successfully  block him
+        if ($archivPosts) {
+            $sqlState = self::database()->prepare("UPDATE users SET isactive = 0 WHERE user_id = ?");
+            return $sqlState->execute([$userID]);
+        }
+    }
+
+    // remove user
+    public static function  destroy($userID)
+    {
+
+        //remove all posts belong user admin wnats block 
+        $archivPosts = self::database()->prepare("DELETE FROM posts WHERE user_id = ?");
+        $archivPosts->execute([$userID]);
+
+        //if removed his post  successfully  remove him
+        if ($archivPosts) {
+            $sqlState = self::database()->prepare("DELETE FROM users  WHERE user_id = ?");
+            return $sqlState->execute([$userID]);
+        }
     }
 }

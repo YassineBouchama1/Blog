@@ -1,9 +1,12 @@
 <?php
-namespace app\models;
+
+// namespace app\models;
+
 require_once 'db_config.php';
+
 use PDO;
 
-class Model
+class BaseModel
 {
 
     protected static $db;
