@@ -116,11 +116,13 @@ class UserController
         // Find a post by ID
         $isUserExist = UserModel::find($user_id);
         if ($isUserExist) {
+
             $user = new UserModel();
             $user->setId($user_id);
             $user->setUsername($username);
             $user->setPassword($password);
             $user->setRole($role);
+
             // excute function update 
             if ($user->update()) {
                 Utility::sendResponse("User updated successfully", 200);

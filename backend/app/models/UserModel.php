@@ -66,23 +66,21 @@ class UserModel extends BaseModel
     //update user
     public function update()
     {
-        // Pre SQL query
+        // pre sql query
         $sql = "UPDATE users SET ";
         $params = [];
 
-        // If equal to null, that means won't update that column
+        // if equal null that means won't update that column
         if ($this->username !== null) {
             $sql .= "username=?, ";
             $params[] = $this->username;
         }
 
-        // Check if $this->password is not null and update the password column
         if ($this->password !== null) {
             $sql .= "password=?, ";
             $params[] = $this->password;
         }
 
-        // Check if $this->role is not null and update the role column
         if ($this->role !== null) {
             $sql .= "role=?, ";
             $params[] = $this->role;
@@ -91,13 +89,14 @@ class UserModel extends BaseModel
         // Remove the trailing comma and space from the string
         $sql = rtrim($sql, ", ");
 
-        $sql .= " WHERE user_id = $this->id";
-        // $params[] = $this->id;
+        $sql .= " WHERE user_id=? ";
+        $params[] = $this->id;
 
         $sqlState = static::database()->prepare($sql);
 
         return $sqlState->execute($params);
     }
+
 
 
 
