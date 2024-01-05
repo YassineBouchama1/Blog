@@ -4,7 +4,7 @@
 
 require 'BaseModel.php';
 
-// use app\models\BaseModel;
+
 
 class UserModel extends BaseModel
 {
@@ -50,7 +50,7 @@ class UserModel extends BaseModel
     // return all users order by desc
     public static function latest()
     {
-        return static::database()->query('SELECT * FROM users order by id DESC')
+        return static::database()->query('SELECT * FROM users order by user_id DESC')
             ->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -59,41 +59,46 @@ class UserModel extends BaseModel
     public static function find($userID)
     {
         return static::database()->query("SELECT * FROM users WHERE user_id =  $userID")
-            ->fetchAll(PDO::FETCH_ASSOC);
+            ->fetch(PDO::FETCH_ASSOC);
     }
 
 
     //update user
     public function update()
     {
-        //pre sql query
+        // Pre SQL query
         $sql = "UPDATE users SET ";
         $params = [];
 
-
-        // if  equal null thats mean won't update that column
-
+        // If equal to null, that means won't update that column
         if ($this->username !== null) {
             $sql .= "username=?, ";
             $params[] = $this->username;
         }
 
+        // Check if $this->password is not null and update the password column
         if ($this->password !== null) {
+            $sql .= "password=?, ";
+            $params[] = $this->password;
+        }
+
+        // Check if $this->role is not null and update the role column
+        if ($this->role !== null) {
             $sql .= "role=?, ";
             $params[] = $this->role;
         }
 
-
-        // Remove the trailing comma and space from  string
+        // Remove the trailing comma and space from the string
         $sql = rtrim($sql, ", ");
 
-        $sql .= " WHERE id=?";
-        $params[] = $this->id;
+        $sql .= " WHERE user_id = $this->id";
+        // $params[] = $this->id;
 
         $sqlState = static::database()->prepare($sql);
 
         return $sqlState->execute($params);
     }
+
 
 
 

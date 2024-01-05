@@ -54,4 +54,41 @@ class AuthController
             Utility::sendResponse("Failed to Create Account", 500);
         }
     }
+
+
+
+    // this is acontroller  for login ccount
+    public static function loginAction()
+    {
+
+
+        // this is a fucntion build in to get data from post and speard it  to variabls
+        extract($_POST);
+        
+        //list of data expect user send it 
+        $requiredFields = ['email', 'password'];
+
+        //validation
+        Utility::validator($requiredFields);
+
+
+        //check if name exist 
+        $auth = new AuthModel();
+        //set data 
+        //fake data
+        // $auth->setEmail('test1@gmail.com');
+        // $auth->setPassword('pass123');
+
+
+        $auth->setEmail($email);
+        $auth->setPassword($password);
+
+
+
+        if ($auth->login()) {
+            Utility::sendResponse("Login successfully", 200);
+        } else {
+            Utility::sendResponse("Failed to Login ", 500);
+        }
+    }
 }
