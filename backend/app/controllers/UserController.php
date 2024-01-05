@@ -72,6 +72,22 @@ class UserController
         Utility::sendResponse("there is no user under this $user_id", 404);
     }
 
+    // block user
+    public static function unBlockUserAction()
+    {
+        //Reception data from query id
+        extract($_GET);
+        $user = UserModel::unBlockUser($user_id);
+
+
+        // check if  user  unBlcoked
+        if ($user) {
+
+            Utility::sendResponse("user belong id:  $user_id unBlocked", 200);
+            return;
+        }
+        Utility::sendResponse("there is no user under this $user_id", 404);
+    }
 
 
 

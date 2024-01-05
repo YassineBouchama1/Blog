@@ -117,6 +117,22 @@ class UserModel extends BaseModel
         }
     }
 
+
+    // unblock user
+    public static function  unBlockUser($userID)
+    {
+
+        //Unarchived all posts belong user admin wnats block 
+        $archivPosts = self::database()->prepare("UPDATE posts SET archived = 1 WHERE user_id = ?");
+        $archivPosts->execute([$userID]);
+
+        //if unArchive his post  successfully  block him
+        if ($archivPosts) {
+            $sqlState = self::database()->prepare("UPDATE users SET isactive = 1 WHERE user_id = ?");
+            return $sqlState->execute([$userID]);
+        }
+    }
+
     // remove user
     public static function  destroy($userID)
     {
