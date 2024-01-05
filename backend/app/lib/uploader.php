@@ -3,20 +3,16 @@
 
 function uploadImage($fileInputName, $targetDirectory)
 {
-
-    // create empty object useing built in stdclass
     $result = new stdClass();
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        // Check if the file input is set and there are no errors
         if (isset($_FILES[$fileInputName]) && $_FILES[$fileInputName]['error'] === UPLOAD_ERR_OK) {
-            // create path where folder is
             $targetPath = $targetDirectory . basename($_FILES[$fileInputName]['name']);
 
-            // Move the uploaded img to folder
             if (move_uploaded_file($_FILES[$fileInputName]['tmp_name'], $targetPath)) {
                 $result->success = true;
                 $result->message = "Image uploaded successfully.";
+                $result->path = $targetPath; // Add this line to store the path
             } else {
                 $result->success = false;
                 $result->message = "Error uploading image.";
@@ -32,6 +28,7 @@ function uploadImage($fileInputName, $targetDirectory)
 
     return $result;
 }
+
 
 
 //how to call it
