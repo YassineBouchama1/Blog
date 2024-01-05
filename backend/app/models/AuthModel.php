@@ -56,26 +56,38 @@ class AuthModel extends BaseModel
     public function register()
     {
 
-        $sqlState = static::database()->prepare("INSERT INTO `users`(`username`, `email`, `password`, `role`) VALUES ('?','?','?','?')");
-        return $sqlState->execute([$this->username, $this->email, $this->password, $this->role]);
+
+        // hashing password
+        $hashedPassword = password_hash($this->password, PASSWORD_BCRYPT);
+
+
+        $sql = "INSERT INTO `users`(`username`, `email`, `password`, `role`) VALUES (?, ?, ?, ?)";
+        $sqlState = static::database()->prepare($sql);
+
+        // Bind parameters
+        $sqlState->bindParam(1, $this->username);
+        $sqlState->bindParam(2, $this->email);
+        $sqlState->bindParam(3, $hashedPassword);
+        $sqlState->bindParam(4, $this->role);
+
+        return $sqlState->execute();
     }
 
 
     // login  user by passing email and pass
     public function login()
     {
-        $sqlState = static::database()->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
-        $sqlState->execute([$this->username, $this->password]);
+        $sqlState = static::database()->prepare("SELECT * FROM users WHERE email = ?");
+        $sqlState->execute([$this->email]);
 
         $user = $sqlState->fetch(PDO::FETCH_ASSOC);
 
+        // Check if a suser exists
+        if ($user && password_verify($this->password, $user['password'])) {
 
-        // Check if a user  exists
-        if ($user) {
-            // Auth successful
             return $user;
         } else {
-            // Autj failed
+
             return false;
         }
     }

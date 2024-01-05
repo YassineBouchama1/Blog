@@ -4,7 +4,7 @@
 
 require_once 'db_config.php';
 
-use PDO;
+// use PDO;
 
 class BaseModel
 {

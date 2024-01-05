@@ -2,7 +2,6 @@
 
 require 'BaseModel.php';
 
-use PDO;
 
 class PostModel extends BaseModel
 {

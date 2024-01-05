@@ -18,6 +18,3 @@ define('DB_PASS', '');
 // define('DB_USER', 'u232894250_travelsmart');
 
 // define('DB_PASS', 'sisko007SP@');
-
-
-?>

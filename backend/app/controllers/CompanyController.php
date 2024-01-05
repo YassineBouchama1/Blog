@@ -1,30 +1,25 @@
 <?php
 
-namespace app\controllers;
+// namespace app\controllers;
 
-require 'app/models/Company.php';
+require 'app/models/AuthModel.php';
+require 'app/lib/Utility.php';
 
-use app\models\Company;
-
-
-
+// use app\models\Company;
 
 
-class CompanyController
+
+
+
+class AuthController
 {
 
 
-    public static function indexAction()
-    {
-        $companies = Company::all();
 
-        //    return  'index';
-        echo json_encode($companies);
-    }
 
     public static function show($id)
     {
-        $company = Company::find($id);
+        $company = AuthModel::find($id);
 
         if ($company) {
 
