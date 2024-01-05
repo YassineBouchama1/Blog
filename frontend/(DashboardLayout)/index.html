@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="flex  flex-row w-[100%] p-5 m-0 text-[#111C2D] bg-[#f0f5f9] text-base font-normal leading-5 font-sans ">
+
+  <aside
+    class="w-[270px] bg-white rounded-[18px] h-screen  flex flex-col  z-20 fixed  top-5  lg:left-5 left-[-100%]   bottom-5  shadow-md transition-width duration-150 ease-in-out  ">
+    <div class="h-[100px] p-5 ">
+      <a class="modernize-13biwtz" href="/">
+        <img alt="logo" fetchpriority="high" width="174" height="70" decoding="async" data-nimg="1"
+          src="https://spike-nextjs-pro-main.vercel.app/images/logos/logo-dark.svg" class="text-transparent" />
+      </a>
+
+    </div>
+
+    <!-- body sidebar -->
+    <ul class="h-full  flex  flex-col   overflow-y-auto pr-5 w-full">
+
+      <li
+        class="bg-[#e5f3fb] mt-1 cursor-pointer	  no-underline   whitespace-nowrap   text-lg p-2 sm:p-3 sm:pl-6 rounded-tr-full rounded-br-full  font-normal  text-[#0085DB] font-normal leading-6 ">
+        <a href="#">
+          <i class="ti ti-home h-[24px] w-[24px] "></i>
+          <span>Dashboard</span>
+
+        </a>
+      </li>
+
+      <li
+        class="text-gray-400 mt-1 cursor-pointer	hover:bg-[#e5f3fb] duration-300   no-underline   whitespace-nowrap   text-lg p-2 sm:p-3 sm:pl-6 rounded-tr-full rounded-br-full  font-normal   font-normal leading-6 ">
+        <a href="#">
+          <i class="ti ti-home h-[24px] w-[24px] "></i>
+          <span>Clients</span>
+
+        </a>
+      </li>
+
+      <li
+        class="text-gray-400 mt-1 cursor-pointer	hover:bg-[#e5f3fb] duration-300   no-underline   whitespace-nowrap   text-lg p-2 sm:p-3 sm:pl-6 rounded-tr-full rounded-br-full  font-normal   font-normal leading-6 ">
+        <a href="#">
+          <i class="ti ti-home h-[24px] w-[24px] "></i>
+          <span>Workers</span>
+
+        </a>
+      </li>
+
+
+      <li
+        class="text-gray-400 mt-1 cursor-pointer	hover:bg-[#e5f3fb] duration-300   no-underline   whitespace-nowrap   text-lg p-2 sm:p-3 sm:pl-6 rounded-tr-full rounded-br-full  font-normal   font-normal leading-6 ">
+        <a href="#">
+          <i class="ti ti-home h-[24px] w-[24px] "></i>
+          <span>Contracts</span>
+
+        </a>
+      </li>
+
+
+
+    </ul>
+
+    <!-- body sidebar -->
+
+  </aside>
+
+
+  <!--  inside page  -->
+  <div class="w-full ml-auto block lg:ml-[280px]  px-5 rounded-lg lg:px-[16px]  max-w-[1200px] box-border ">
+
+    <header
+      class="bg-white transition-shadow px-5  min-h-[70px] rounded-[18px] duration-300 ease-in-out flex  w-full box-border  items-center justify-between sticky top-0 right-0 color-opacity-87   shadow-md backdrop-blur-md">
+
+
+      <i class="ti ti-menu-2 text-xl cursor-pointer lg:block hidden"></i>
+
+
+      <div class="flex justify-center items-center gap-x-4">
+
+        <div class="relative flex items-center w-full  rounded-full  border-2	 py-1 bg-white overflow-hidden">
+          <div class="grid place-items-center h-full w-12 text-gray-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+
+          <input class="peer h-full w-full outline-none text-sm text-gray-700 pr-2" type="text" id="search"
+            placeholder="Search something.." />
+        </div>
+        <!-- switcher drk mode -->
+        <div>
+
+          <label class="relative inline-flex items-center cursor-pointer justify-center">
+            <input type="checkbox" value="" class="sr-only peer">
+            <div
+              class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-green-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+            </div>
+
+          </label>
+        </div>
+
+
+        <!-- switcher drk mode -->
+        <div>
+
+          <i class="ti ti-bell text-3xl cursor-pointer"></i>
+        </div>
+
+
+        <div class="flex w-full gap-x-2">
+          <img alt="ProfileImg" src="https://spike-nextjs-pro-main.vercel.app/images/profile/user5.jpg"
+            class="rounded-full object-cover object-center w-10 h-10 modernize-1hy9t21">
+
+          <h3 class="font-bold flex flex-col dark:text-white">Yassine Bouc <span
+              class="font-light  dark:text-white">Admin</span></h3>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!--  start page content  -->
+    <div class="  rounded-[18px] h-full mt-6 ">
+
+      <!--  start Cards  -->
+      <div class="bg-white transition-shadow rounded-[18px] shadow-md backdrop-blur-md h-[250px] w-[250px] p-4">
+        ffd
+
+      </div>
+      <!--  end Cards  -->
+
+
+
+    </div>
+    <!--  start page content  -->
+
+
+  </div>
+  <!--  inside page  -->
+</body>
+
+</html>
