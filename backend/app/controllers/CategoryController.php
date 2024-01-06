@@ -32,6 +32,8 @@ class CategoryController
     {
         // Reception data from query id
         extract($_GET);
+        //1- Check if category_id sent
+        if (!$category_id) return Utility::sendResponse("category_id is Required", 404);
         $category = CategoryModel::find($category_id);
 
         // Check if there is a category
@@ -151,6 +153,8 @@ class CategoryController
     {
         // Reception data from query id
         extract($_GET);
+        //1- Check if category_id sent
+        if (!$category_id) return Utility::sendResponse("category_id is Required", 404);
         $category = CategoryModel::destroy($category_id);
 
         // Check if the category is deleted

@@ -60,6 +60,8 @@ class UserController
     {
         //Reception data from query id
         extract($_GET);
+        //1- Check if id sent
+        if (!$user_id) return Utility::sendResponse("post_id is Required", 404);
         $user = UserModel::blockUser($user_id);
 
 
@@ -77,6 +79,8 @@ class UserController
     {
         //Reception data from query id
         extract($_GET);
+        //1- Check if id sent
+        if (!$user_id) return Utility::sendResponse("post_id is Required", 404);
         $user = UserModel::unBlockUser($user_id);
 
 
@@ -97,6 +101,8 @@ class UserController
 
         //Reception data from query id
         extract($_GET);
+        //1- Check if id sent
+        if (!$user_id) return Utility::sendResponse("post_id is Required", 404);
         $user = UserModel::destroy($user_id);
 
 
@@ -115,6 +121,8 @@ class UserController
         //Reception data from query id and save it
         // in variabl with same name data comes
         extract($_GET);
+        //1- Check if id sent
+        if (!$user_id) return Utility::sendResponse("post_id is Required", 404);
 
         //check if user_id sent
         if (!$user_id) return  Utility::sendResponse("user_id is Required", 404);

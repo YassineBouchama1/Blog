@@ -59,7 +59,7 @@ class PostModel extends BaseModel
 
     public static function latest()
     {
-        return static::database()->query('SELECT * FROM posts ORDER BY post_id DESC')
+        return static::database()->query('SELECT * FROM posts ORDER BY date_created DESC')
             ->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -71,10 +71,19 @@ class PostModel extends BaseModel
 
 
 
-    public function create()
+    public function create($tags)
     {
-        $sqlState = static::database()->prepare("INSERT INTO posts (user_id, category_id, title, content, image, views) VALUES (?, ?, ?, ?, ?, ?)");
-        return $sqlState->execute([$this->user_id, $this->category_id, $this->title, $this->content, $this->image, $this->views]);
+        //1 insert post
+        $sqlState = static::database()->prepare("INSERT INTO posts (user_id, category_id, title, content, image) VALUES (?, ?, ?, ?, ?)");
+        $sqlState->execute([$this->user_id, $this->category_id, $this->title, $this->content, $this->image]);
+
+        //2  Get the last inserted post_id
+        $postId = static::database()->lastInsertId();
+
+        //3 add tags to tags_post for post we created
+        if ($postId) {
+            return  $this->handleTags($postId, $tags);
+        }
     }
 
 
@@ -111,16 +120,12 @@ class PostModel extends BaseModel
             $params[] = $this->image;
         }
 
-        if ($this->views !== null) {
-            $sql .= "views=?, ";
-            $params[] = $this->views;
-        }
+        // if ($this->views !== null) {
+        //     $sql .= "views=?, ";
+        //     $params[] = $this->views;
+        // }
 
 
-        if ($this->archived !== null) {
-            $sql .= "archived=?, ";
-            $params[] = $this->archived;
-        }
 
         // Remove the trailing comma and space from the SQL string
         $sql = rtrim($sql, ", ");
@@ -148,5 +153,47 @@ class PostModel extends BaseModel
     {
         $sqlState = self::database()->prepare("DELETE FROM posts WHERE post_id = ?");
         return $sqlState->execute([$post_id]);
+    }
+
+
+
+
+    private function handleTags($postId, $tags)
+    {
+        $tagIds = []; // here we will store ids tags
+
+
+        // 1 loop throught array tags
+        foreach ($tags as $tagName) {
+
+            $tagName = trim($tagName);
+
+            //2  Check if the tag already exists in the tags table
+            $stmt = static::database()->prepare("SELECT tag_id FROM tags WHERE tag_name = ?");
+            $stmt->execute([$tagName]);
+
+            //3 valiadtor
+            if ($stmt->rowCount() > 0) {
+                // If the tag exists, use its tag_id
+                $tagId = $stmt->fetch(PDO::FETCH_ASSOC)['tag_id'];
+            } else {
+                // If the tag doesn't exist, insert it into the tags table
+                $stmt = static::database()->prepare("INSERT INTO tags (tag_name) VALUES (?)");
+                $stmt->execute([$tagName]);
+
+                // Get the last inserted tag_id
+                $tagId = static::database()->lastInsertId();
+            }
+
+            //4 Add  tag_id to the array
+            $tagIds[] = $tagId;
+        }
+
+        // insert tag_id to post Tags
+        foreach ($tagIds as $tagId) {
+            $stmt = static::database()->prepare("INSERT INTO post_tags (post_id, tag_id) VALUES (?, ?)");
+            $stmt->execute([$postId, $tagId]);
+        }
+        return true;
     }
 }
