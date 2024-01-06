@@ -43,31 +43,31 @@ class TagModel extends BaseModel
     }
 
 
-    // Update category
+    // Update tag
+
     public function update()
     {
         // Pre SQL query
-        $sql = "UPDATE tags SET tag_name = ? WHERE tag_id=?";
+        $sql = "UPDATE tags SET tag_name = ? WHERE tag_id = ?";
 
         $sqlState = static::database()->prepare($sql);
 
-        return $sqlState->execute([$this->id, $this->name]);
+        return $sqlState->execute([$this->name, $this->id]);
     }
 
 
-    // Remove category
+
+    // Remove tag
     public static function destroy($tagId)
     {
 
 
-         // Then, delete the post tag
-         $sqlState = static::database()->prepare("DELETE FROM post_tag WHERE tag_id = ?");
-         return $sqlState->execute([$tagId]);
+        // // Then, delete the post tag
+        // $sqlState = static::database()->prepare("DELETE FROM post_tag WHERE tag_id = ?");
+        // return $sqlState->execute([$tagId]);
 
         //remove all posts belong this tag
         $archivPosts = self::database()->prepare("DELETE FROM tags WHERE tag_id = ?");
         $archivPosts->execute([$tagId]);
-        
-       
     }
 }

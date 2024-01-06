@@ -126,15 +126,22 @@ class TagController
     {
         // Reception data from query id
         extract($_GET);
-        //1- Check if category_id sent
+        //1- Check if tag sent
         if (!$tag_id) return Utility::sendResponse("tag_id is Required", 404);
-        $tag = TagModel::destroy($tag_id);
 
-        // Check if the category is deleted
-        if ($tag) {
-            Utility::sendResponse("tag with ID: $tag_id deleted", 200);
-            return;
+        $isTaxExist = TagModel::find($tag_id);
+        // Check if the tag exist
+        if ($isTaxExist) {
+
+            $tag = TagModel::destroy($tag_id);
+
+            // Check if the tag is deleted
+            if ($tag) {
+                Utility::sendResponse("tag with ID: $tag_id deleted", 200);
+                return;
+            }
         }
+
         Utility::sendResponse("There is no tag under this $tag_id", 404);
     }
 }

@@ -33,8 +33,8 @@ CREATE TABLE posts (
     views INT UNSIGNED DEFAULT 0, 
     date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     archived BOOLEAN DEFAULT 1,
-    FOREIGN KEY (user_id) REFERENCES users(user_id),
-    FOREIGN KEY (category_id) REFERENCES categories(category_id)
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE, 
+    FOREIGN KEY (category_id) REFERENCES categories(category_id) ON DELETE CASCADE
 );
 
 
@@ -42,6 +42,6 @@ CREATE TABLE post_tags (
     post_id INT,
     tag_id INT,
     PRIMARY KEY (post_id, tag_id),
-    FOREIGN KEY (post_id) REFERENCES posts(post_id),
-    FOREIGN KEY (tag_id) REFERENCES tags(tag_id)
+    FOREIGN KEY (post_id) REFERENCES posts(post_id) ON DELETE CASCADE,
+    FOREIGN KEY (tag_id) REFERENCES tags(tag_id) ON DELETE CASCADE
 );
