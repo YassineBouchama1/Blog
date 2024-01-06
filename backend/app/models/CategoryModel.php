@@ -43,7 +43,7 @@ class CategoryModel extends BaseModel
     // Create a new category
     public function create()
     {
-        $sqlState = static::database()->prepare("INSERT INTO categories (name, image) VALUES (?, ?)");
+        $sqlState = static::database()->prepare("INSERT INTO categories (category_name, image) VALUES (?, ?)");
         return $sqlState->execute([$this->name, $this->image]);
     }
 
@@ -56,7 +56,7 @@ class CategoryModel extends BaseModel
 
         // If equal to null, that means won't update that column
         if ($this->name !== null) {
-            $sql .= "name=?, ";
+            $sql .= "category_name=?, ";
             $params[] = $this->name;
         }
 
@@ -86,7 +86,7 @@ class CategoryModel extends BaseModel
         $archivPosts->execute([$categoryId]);
 
         // Then, delete the category
-        $sqlState = static::database()->prepare("DELETE FROM categories WHERE id = ?");
+        $sqlState = static::database()->prepare("DELETE FROM categories WHERE category_id = ?");
         return $sqlState->execute([$categoryId]);
     }
 }

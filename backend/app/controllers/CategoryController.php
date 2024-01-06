@@ -2,7 +2,8 @@
 
 require 'app/models/CategoryModel.php';
 require 'app/lib/Utility.php';
-require 'functions.php';
+require 'app/lib/uploadImage.php';
+
 class CategoryController
 {
     private static $utility;
@@ -25,6 +26,7 @@ class CategoryController
         Utility::sendResponse("There are no categories", 404);
     }
 
+
     // Get category by id
     public static function findCategoryAction()
     {
@@ -40,24 +42,34 @@ class CategoryController
         Utility::sendResponse("There is no category under this $category_id", 404);
     }
 
+
+
+
+
     // Create a new category
     public static function createAction()
     {
         // Check if data is sent in the POST request
         $name = isset($_POST['name']) ? $_POST['name'] : null;
-        $image = isset($_POST['image']) ? $_POST['image'] : null;
-        $category = new CategoryModel();
+        // $image = isset($_POST['image']) ? $_POST['image'] : null;
 
         // upload image to path
+        //1>
         $targetDirectory = 'uploads/categories/';
+        //2>
         $result = uploadImage('image', $targetDirectory);
+
+
+        //check if image uploaded
         if ($result->success) {
+            $category = new CategoryModel();
 
             $category->setImage($result->path);
+            $category->setName($name);
         } else {
             Utility::sendResponse("Error: " . $result->message, 500);
         }
-        $category->setName($name);
+
 
         if ($category->create()) {
             Utility::sendResponse("Category created successfully", 201);
@@ -66,6 +78,9 @@ class CategoryController
         }
     }
 
+
+
+
     // Update category
     public static function updateAction()
     {
@@ -73,33 +88,62 @@ class CategoryController
         // in variable with the same name as data comes
         extract($_GET);
 
-        // Check if category_id sent
+        //1- Check if category_id sent
         if (!$category_id) return Utility::sendResponse("category_id is Required", 404);
 
-        // Check if data is sent in the POST request
+        //2- Check if data is sent in the POST request
         $name = isset($_POST['name']) ? $_POST['name'] : null;
         $image = isset($_POST['image']) ? $_POST['image'] : null;
 
-        // Find a category by ID
+        //3- check if a category is exist first
         $isCategoryExist = CategoryModel::find($category_id);
 
+
         if ($isCategoryExist) {
+
             $category = new CategoryModel();
+
+
+            //4- check if user  wants update image also
+            if ($image !== null) {
+
+
+                //4-1- upload image to path
+                $targetDirectory = 'uploads/categories/';
+
+                $result = uploadImage('image', $targetDirectory);
+
+
+
+                //4-2 -check if image uploaded
+                if ($result->success) {
+                    $category->setImage($image);
+                } else {
+                    Utility::sendResponse("Error: " . $result->message, 500);
+                    return;
+                }
+            }
+
+            //5- set data to sitters
             $category->setId($category_id);
             $category->setName($name);
-            $category->setImage($image);
 
-            // Execute the update function
+            //6- Execute the update function
             if ($category->update()) {
                 Utility::sendResponse("Category updated successfully", 200);
+                return;
             } else {
                 Utility::sendResponse("Failed to update Category", 500);
+                return;
             }
         } else {
             Utility::sendResponse("There is no category under this $category_id", 404);
             return;
         }
     }
+
+
+
 
     // Delete category by id
     public static function destroyAction()

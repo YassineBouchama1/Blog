@@ -1,4 +1,4 @@
-<!-- File: functions.php -->
+
 <?php
 
 function uploadImage($fileInputName, $targetDirectory)
@@ -28,30 +28,3 @@ function uploadImage($fileInputName, $targetDirectory)
 
     return $result;
 }
-
-
-
-//how to call it
-
-
-
-// require 'functions.php';
-
-// // Assuming you have an instance of your database connection
-// $databaseConnection = new PDO(/* Your database connection parameters */);
-
-// // Specify the target directory to save the image
-// $targetDirectory = 'uploads/';
-
-// // Example: Call the uploadImage function
-// $result = uploadImage('image', $targetDirectory);
-
-// // Output the result
-// if ($result->success) {
-//     echo "Image saved successfully.";
-// } else {
-//     echo "Error: " . $result->message;
-// }
-
-
-?>
