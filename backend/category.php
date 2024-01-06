@@ -23,6 +23,10 @@ if (isset($_GET['action'])) {
         case 'update':
             CategoryController::updateAction();
             break;
+
+        case 'delete':
+            CategoryController::destroyAction();
+            break;
         default:
             echo "Page Not found 404";
             break;

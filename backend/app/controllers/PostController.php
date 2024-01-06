@@ -51,8 +51,8 @@ class PostController
     // Create a new post
     public static function createAction()
     {
-        // List of data expected from the user
-        $requiredFields = ['user_id', 'category_id', 'title', 'content'];
+        //List of data expected from the user
+        $requiredFields = ['user_id', 'category_id', 'title', 'content','image'];
 
         // Validation
         Utility::validator($requiredFields);
@@ -117,20 +117,12 @@ class PostController
         }
 
 
+
         // 2- Check if image is sent in the POST request
-        $image = isset($_POST['image']) ? $_POST['image'] : null;
+        // $image = isset($_POST['image']) ? $_POST['image'] : null;
+        $image = isset($_FILES['image']) ? $_FILES['image'] : null;
+
         $post = new PostModel();
-
-
-
-        // fill sitters
-        if ($post_id !== null) {
-            $post->setPostId($post_id);
-            $post->setUserId($_POST['user_id'] ?? null);
-            $post->setCategoryId($_POST['category_id'] ?? null);
-            $post->setTitle($_POST['title'] ?? null);
-            $post->setContent($_POST['content'] ?? null);
-        }
 
 
         // 4- check if user  wants to update the image also
@@ -146,6 +138,15 @@ class PostController
             }
 
             $post->setImage($result->path);
+        }
+
+        // fill sitters
+        if ($post_id !== null) {
+            $post->setPostId($post_id);
+            $post->setUserId($_POST['user_id'] ?? null);
+            $post->setCategoryId($_POST['category_id'] ?? null);
+            $post->setTitle($_POST['title'] ?? null);
+            $post->setContent($_POST['content'] ?? null);
         }
 
 

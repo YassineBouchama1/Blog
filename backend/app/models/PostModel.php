@@ -93,8 +93,7 @@ class PostModel extends BaseModel
         $sql = "UPDATE posts SET ";
         $params = [];
 
-
-        // if  equal null thats mean won't update that column
+        // Handle each field individually
         if ($this->user_id !== null) {
             $sql .= "user_id=?, ";
             $params[] = $this->user_id;
@@ -120,33 +119,26 @@ class PostModel extends BaseModel
             $params[] = $this->image;
         }
 
-    
-
-
-
         // Remove the trailing comma and space from the SQL string
         $sql = rtrim($sql, ", ");
 
         $sql .= " WHERE post_id=?";
         $params[] = $this->post_id;
 
+        // Prepare and execute the SQL query
         $sqlState = static::database()->prepare($sql);
-
         $sqlState->execute($params);
 
-
-        //2  Get the last inserted post_id
-        $postId = static::database()->lastInsertId();
-
-        //3 add tags to tags_post for post we updated
-        if ($postId) {
-            return  $this->handleTags($postId, $tags);
+        // Update tags for the post
+        if ($this->post_id) {
+            return $this->handleTags($this->post_id, $tags);
         }
     }
 
 
 
-    
+
+
     //archived all post
     public static function archived($post_id)
     {

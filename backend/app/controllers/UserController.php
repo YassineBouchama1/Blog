@@ -2,7 +2,7 @@
 
 require 'app/models/UserModel.php';
 require 'app/lib/Utility.php';
-
+require 'app/lib/uploadImage.php';
 
 
 
@@ -134,28 +134,48 @@ class UserController
         $role = isset($_POST['role']) ? $_POST['role'] : null;
 
 
+        $image = isset($_FILES['image']) ? $_FILES['image'] : null;
+
 
 
 
         // Find a post by ID
         $isUserExist = UserModel::find($user_id);
-        if ($isUserExist) {
 
-            $user = new UserModel();
-            $user->setId($user_id);
-            $user->setUsername($username);
-            $user->setPassword($password);
-            $user->setRole($role);
-
-            // excute function update 
-            if ($user->update()) {
-                Utility::sendResponse("User updated successfully", 200);
-            } else {
-                Utility::sendResponse("Failed to update User", 500);
-            }
-        } else {
+        if (!$isUserExist) {
             Utility::sendResponse("there is no user under this $user_id", 404);
             return;
+        }
+
+        $user = new UserModel();
+
+        // 4- check if user  wants to update the image also
+        if ($image !== null) {
+            // 4-1- upload image to path
+            $targetDirectory = 'uploads/users/';
+            $result = uploadImage('image', $targetDirectory);
+
+            // 4-2 -check if image uploaded
+            if (!$result->success) {
+                Utility::sendResponse("Error: " . $result->message, 500);
+                return;
+            }
+
+            $user->setImage($result->path);
+        }
+
+        $user->setId($user_id);
+        $user->setUsername($username);
+        $user->setPassword($password);
+        $user->setRole($role);
+
+
+
+        // excute function update 
+        if ($user->update()) {
+            Utility::sendResponse("User updated successfully", 200);
+        } else {
+            Utility::sendResponse("Failed to update User", 500);
         }
     }
 }

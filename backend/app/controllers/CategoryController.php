@@ -55,6 +55,13 @@ class CategoryController
         $name = isset($_POST['name']) ? $_POST['name'] : null;
         // $image = isset($_POST['image']) ? $_POST['image'] : null;
 
+        $image = isset($_FILES['image']) ? $_FILES['image'] : null;
+
+
+        if ($image === null) {
+            Utility::sendResponse("image is required", 500);
+            return;
+        }
         // upload image to path
         //1>
         $targetDirectory = 'uploads/categories/';
@@ -95,7 +102,10 @@ class CategoryController
 
         //2- Check if data is sent in the POST request
         $name = isset($_POST['name']) ? $_POST['name'] : null;
-        $image = isset($_POST['image']) ? $_POST['image'] : null;
+        // $image = isset($_POST['image']) ? $_POST['image'] : null;
+
+        $image = isset($_FILES['image']) ? $_FILES['image'] : null;
+
 
 
         //3- check if a category is exist first

@@ -39,7 +39,13 @@ class AuthController
         $email = isset($_POST['email']) ? $_POST['email'] : null;
         $password = isset($_POST['password']) ? $_POST['password'] : null;
         $role = isset($_POST['role']) ? $_POST['role'] : null;
-        $image = isset($_POST['image']) ? $_POST['image'] : null;
+        // $image = isset($_POST['image']) ? $_POST['image'] : null;
+
+        $image = isset($_FILES['image']) ? $_FILES['image'] : null;
+
+
+
+
 
         //check if name exist 
         $auth = new AuthModel();

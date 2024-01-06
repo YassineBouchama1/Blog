@@ -13,7 +13,7 @@ class UserModel extends BaseModel
     private $username;
     private $password;
     private $role;
-
+    private $image;
 
 
 
@@ -36,7 +36,10 @@ class UserModel extends BaseModel
         $this->username = $username;
     }
 
-
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
 
 
     // Setter for password
@@ -84,6 +87,12 @@ class UserModel extends BaseModel
         if ($this->role !== null) {
             $sql .= "role=?, ";
             $params[] = $this->role;
+        }
+
+
+        if ($this->image !== null) {
+            $sql .= "image=?, ";
+            $params[] = $this->image;
         }
 
         // Remove the trailing comma and space from the string
