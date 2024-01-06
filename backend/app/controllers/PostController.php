@@ -100,7 +100,8 @@ class PostController
     {
         // Reception data from query id and save it
         // in variable with the same name as data comes
-        $post_id = isset($_GET['post_id']) ? $_GET['post_id'] : null;
+
+        extract($_GET);
 
         // 1- Check if post_id sent
         if (!$post_id) return  Utility::sendResponse("post id is required ", 404);
@@ -112,12 +113,14 @@ class PostController
 
         if (!$isPostExist) {
             Utility::sendResponse("There is no Post under this $post_id", 404);
-
             return;
         }
-        // 2- Check if data is sent in the POST request
+
+
+        // 2- Check if image is sent in the POST request
         $image = isset($_POST['image']) ? $_POST['image'] : null;
         $post = new PostModel();
+
 
 
         // fill sitters
@@ -142,13 +145,16 @@ class PostController
                 return;
             }
 
-            $post->setImage($result->path ?? null);
+            $post->setImage($result->path);
         }
 
 
 
+        $tags = isset($_POST['tags']) ? explode(',', $_POST['tags']) : [];
+
+
         // 6- Execute the update function
-        if ($post->update()) {
+        if ($post->update($tags)) {
             Utility::sendResponse("Post updated successfully", 200);
         } else {
             Utility::sendResponse("Failed to update Post", 500);

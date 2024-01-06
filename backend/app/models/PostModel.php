@@ -88,7 +88,7 @@ class PostModel extends BaseModel
 
 
 
-    public function update()
+    public function update($tags)
     {
         $sql = "UPDATE posts SET ";
         $params = [];
@@ -135,7 +135,16 @@ class PostModel extends BaseModel
 
         $sqlState = static::database()->prepare($sql);
 
-        return $sqlState->execute($params);
+        $sqlState->execute($params);
+
+
+        //2  Get the last inserted post_id
+        $postId = static::database()->lastInsertId();
+
+        //3 add tags to tags_post for post we updated
+        if ($postId) {
+            return  $this->handleTags($postId, $tags);
+        }
     }
 
 
@@ -151,6 +160,10 @@ class PostModel extends BaseModel
     //remove post 
     public static function destroy($post_id)
     {
+        // Then, delete the post tag
+        $sqlState = static::database()->prepare("DELETE FROM post_tag WHERE post_id = ?");
+        return $sqlState->execute([$post_id]);
+
         $sqlState = self::database()->prepare("DELETE FROM posts WHERE post_id = ?");
         return $sqlState->execute([$post_id]);
     }
