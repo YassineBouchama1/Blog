@@ -161,6 +161,7 @@ class PostController
         }
     }
 
+
     // Delete category by id
     public function destroyAction()
     {
@@ -173,6 +174,21 @@ class PostController
             Utility::sendResponse("Category with ID: $post_id deleted", 200);
         } else {
             Utility::sendResponse("There is no category under this $post_id", 404);
+        }
+    }
+
+
+    public static function archiveAction()
+    {
+        // Reception data from query id
+        $post_id = isset($_GET['post_id']) ? $_GET['post_id'] : null;
+        $post = PostModel::archived($post_id);
+
+        // Check if the category is deleted
+        if ($post) {
+            Utility::sendResponse("post with ID: $post_id archived", 200);
+        } else {
+            Utility::sendResponse("There is no post under this $post_id", 404);
         }
     }
 }

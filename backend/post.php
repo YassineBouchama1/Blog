@@ -23,6 +23,10 @@ if (isset($_GET['action'])) {
         case 'update':
             PostController::updateAction();
             break;
+
+        case 'archive':
+            PostController::archiveAction();
+            break;
         default:
             echo "Page Not found 404";
             break;

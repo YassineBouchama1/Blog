@@ -120,10 +120,7 @@ class PostModel extends BaseModel
             $params[] = $this->image;
         }
 
-        // if ($this->views !== null) {
-        //     $sql .= "views=?, ";
-        //     $params[] = $this->views;
-        // }
+    
 
 
 
@@ -149,6 +146,7 @@ class PostModel extends BaseModel
 
 
 
+    
     //archived all post
     public static function archived($post_id)
     {
@@ -171,6 +169,7 @@ class PostModel extends BaseModel
 
 
 
+    // this fuction for  save tags
     private function handleTags($postId, $tags)
     {
         $tagIds = []; // here we will store ids tags

@@ -127,14 +127,14 @@ class TagController
         // Reception data from query id
         extract($_GET);
         //1- Check if category_id sent
-        if (!$category_id) return Utility::sendResponse("category_id is Required", 404);
-        $category = TagModel::destroy($category_id);
+        if (!$tag_id) return Utility::sendResponse("tag_id is Required", 404);
+        $tag = TagModel::destroy($tag_id);
 
         // Check if the category is deleted
-        if ($category) {
-            Utility::sendResponse("Category with ID: $category_id deleted", 200);
+        if ($tag) {
+            Utility::sendResponse("tag with ID: $tag_id deleted", 200);
             return;
         }
-        Utility::sendResponse("There is no category under this $category_id", 404);
+        Utility::sendResponse("There is no tag under this $tag_id", 404);
     }
 }
