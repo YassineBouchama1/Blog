@@ -13,7 +13,7 @@ class AuthModel extends BaseModel
     private $email;
     private $password;
     private $role;
-
+    private $image;
 
 
 
@@ -39,7 +39,10 @@ class AuthModel extends BaseModel
         $this->email = $email;
     }
 
-
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
 
     // Setter for password
     public function setPassword($password)
@@ -61,7 +64,7 @@ class AuthModel extends BaseModel
         $hashedPassword = password_hash($this->password, PASSWORD_BCRYPT);
 
 
-        $sql = "INSERT INTO `users`(`username`, `email`, `password`, `role`) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO `users`(`username`, `email`, `password`, `role`,`image`) VALUES (?, ?, ?, ?, ?)";
         $sqlState = static::database()->prepare($sql);
 
         // Bind parameters
@@ -69,6 +72,7 @@ class AuthModel extends BaseModel
         $sqlState->bindParam(2, $this->email);
         $sqlState->bindParam(3, $hashedPassword);
         $sqlState->bindParam(4, $this->role);
+        $sqlState->bindParam(5, $this->image);
 
         return $sqlState->execute();
     }

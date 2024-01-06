@@ -68,7 +68,8 @@ class CategoryModel extends BaseModel
 
         $sql = rtrim($sql, ", ");
 
-        $sql .= " WHERE category_id=?";
+       
+        $sql .= " WHERE category_id=? ";
         $params[] = $this->id;
 
         $sqlState = static::database()->prepare($sql);

@@ -95,6 +95,7 @@ class CategoryController
         $name = isset($_POST['name']) ? $_POST['name'] : null;
         $image = isset($_POST['image']) ? $_POST['image'] : null;
 
+
         //3- check if a category is exist first
         $isCategoryExist = CategoryModel::find($category_id);
 
