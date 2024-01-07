@@ -5,7 +5,7 @@
 
 
     <!-- form caregory  -->
-    <div id="form_category" class=" absolute h-[150px] max-w-[280px] w-full transition-all ease-in-out duration-300 scale-0  bg-white dark:bg-[#111c2d] dark:text-white text-black transition-shadow rounded-[18px] shadow-md  backdrop-blur-md  ">
+    <div id="form_category" class=" absolute h-auto max-w-[280px] w-full transition-all ease-in-out duration-300 scale-0  bg-white dark:bg-[#111c2d] dark:text-white text-black transition-shadow rounded-[18px] shadow-md  backdrop-blur-md  ">
 
         <?php require('form.php') ?>
     </div>
@@ -13,7 +13,7 @@
 </div>
 
 
-<div class="mx-auto grid grid-cols-1 lg:grid-cols-5 md:grid-cols-3 justify-items-center justify-center gap-6  mt-10 mb-5">
+<div id="container_list" class="mx-auto grid grid-cols-1 lg:grid-cols-5 md:grid-cols-3 justify-items-center justify-center gap-6  mt-10 mb-5">
 
 
     <div class="max-max-w-[200px] w-full w-full rounded-full max-w-sm bg-white border border-gray-200  shadow dark:bg-[#111c2d] dark:border-gray-700">
@@ -71,3 +71,6 @@
 </div>
 
 <script src="components\tags\tags.js"></script>
+<script src="components\tags\delete.js"></script>
+<script src="components\tags\builder.js"></script>
+<script src="components\tags\create.js"></script>

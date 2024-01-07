@@ -3,7 +3,6 @@
 
 
 const btnCreate = document.getElementById('btnCreate');
-const image = document.getElementById('image');
 const name = document.getElementById('name');
 const error_msg = document.getElementById('error_msg');
 
@@ -23,9 +22,7 @@ async function onBtnFormClick() {
     if (name.value.trim() === '') {
         return error_msg.textContent = 'name is Required'
     }
-    if (image.files.length === 0) {
-        return error_msg.textContent = 'image is Required'
-    }
+
 
 
 
@@ -34,7 +31,6 @@ async function onBtnFormClick() {
     //create formdata to send it to server
     const formData = new FormData();
     formData.append('name', name.value);
-    formData.append('image', image.files[0]);
 
 
     try {
@@ -48,7 +44,7 @@ async function onBtnFormClick() {
         let response = await routePromise.json();
         console.log(response);
         name.value = ''
-        image.files.length = 0
+
         onLoadBuild();
 
         console.log('created')

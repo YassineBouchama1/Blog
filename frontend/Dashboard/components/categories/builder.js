@@ -1,14 +1,14 @@
 const API_BASE_URL = 'http://localhost/blog/backend/category.php';
 
 
-document.addEventListener('DOMContentLoaded', onLoadBuildTable)
+document.addEventListener('DOMContentLoaded', onLoadBuild)
 
 
 
 let container_list = document.getElementById('container_list')
 //this function bring data from server and send it to
 // function <builder> to create
-async function onLoadBuildTable() {
+async function onLoadBuild() {
     try {
         const routePromise = await fetch(API_BASE_URL);
         const data = await routePromise.json();
