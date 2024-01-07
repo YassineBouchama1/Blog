@@ -36,7 +36,7 @@ async function onLoadBuild() {
 function builder(container_list, item) {
 
     let isActiveAuthor = item.isActive === 1;
-    let user_id = item.user_id
+    let dateCreated = item.date_created
     const card = document.createElement('tr');
     card.classList = 'max-max-w-[200px] w-full w-full rounded-full max-w-sm bg-white border border-gray-200  shadow dark:bg-[#111c2d] dark:border-gray-700';
     card.innerHTML = `
@@ -58,7 +58,7 @@ function builder(container_list, item) {
                     </td>
                     <td class="px-5 py-5 border-b border-gray-200  text-sm">
                         <p class="text-gray-900 dark:text-white whitespace-no-wrap">
-                            Jan 21, 2020
+                            ${item.date_created.slice(0, 10)}
                         </p>
                     </td>
                     <td class="px-5 py-5 border-b border-gray-200  text-sm">
