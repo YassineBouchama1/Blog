@@ -11,7 +11,7 @@
       <ul class="h-full  flex  flex-col   overflow-y-auto pr-5 w-full">
 
         <li class="bg-[#e5f3fb] text-[#0085DB] mt-1 cursor-pointer	  no-underline   whitespace-nowrap   text-lg p-2 sm:p-3 sm:pl-6 rounded-tr-full rounded-br-full  font-normal   font-normal leading-6 ">
-          <a href="#">
+          <a href="./">
             <i class="ti ti-home h-[24px] w-[24px] "></i>
             <span>Dashboard</span>
 
@@ -19,7 +19,7 @@
         </li>
 
         <li class="text-gray-400 mt-1 cursor-pointer	hover:bg-[#e5f3fb] hover:text-[#0085DB] duration-300   no-underline   whitespace-nowrap   text-lg p-2 sm:p-3 sm:pl-6 rounded-tr-full rounded-br-full  font-normal   font-normal leading-6 ">
-          <a href="#">
+          <a href="./posts.php">
             <i class="ti ti-article h-[24px] w-[24px] "></i>
             <span>Posts</span>
 
@@ -27,7 +27,7 @@
         </li>
 
         <li class="text-gray-400 mt-1 cursor-pointer	hover:bg-[#e5f3fb]  hover:text-[#0085DB] duration-300   no-underline   whitespace-nowrap   text-lg p-2 sm:p-3 sm:pl-6 rounded-tr-full rounded-br-full  font-normal   font-normal leading-6 ">
-          <a href="#">
+          <a href="./categories.php">
             <i class="ti ti-category h-[24px] w-[24px] "></i>
             <span>Categories</span>
 
@@ -36,7 +36,7 @@
 
 
         <li class="text-gray-400 mt-1 cursor-pointer	hover:bg-[#e5f3fb]  hover:text-[#0085DB] duration-300   no-underline   whitespace-nowrap   text-lg p-2 sm:p-3 sm:pl-6 rounded-tr-full rounded-br-full  font-normal   font-normal leading-6 ">
-          <a href="#">
+          <a href="./tags.php">
             <i class="ti ti-tag h-[24px] w-[24px] "></i>
             <span>Tags</span>
 
@@ -45,7 +45,7 @@
 
 
         <li class="text-gray-400 mt-1 cursor-pointer	hover:bg-[#e5f3fb]  hover:text-[#0085DB] duration-300   no-underline   whitespace-nowrap   text-lg p-2 sm:p-3 sm:pl-6 rounded-tr-full rounded-br-full  font-normal   font-normal leading-6 ">
-          <a href="#">
+          <a href="./authors.php">
             <i class="ti ti-users h-[24px] w-[24px] "></i>
             <span>Authors</span>
 
@@ -62,8 +62,13 @@
 
 
 
+
     <script>
+      window.location.pathname;
+
       document.addEventListener('DOMContentLoaded', function() {
+
+
 
 
         let toggleSideBar = document.getElementById('toggleSideBarinside');

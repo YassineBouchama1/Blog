@@ -1,6 +1,6 @@
 
 tailwind.config = {
-    content: ["*/*/*.{html,js}"],
+    content: ["./*/*.{html,js}"],
     theme: {
         extend: {},
     },
