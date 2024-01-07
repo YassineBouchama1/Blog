@@ -62,6 +62,7 @@ class UserController
         extract($_GET);
         //1- Check if id sent
         if (!$user_id) return Utility::sendResponse("post_id is Required", 404);
+
         $user = UserModel::blockUser($user_id);
 
 

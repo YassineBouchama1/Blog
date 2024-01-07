@@ -142,8 +142,16 @@ class PostModel extends BaseModel
     //archived all post
     public static function archived($post_id)
     {
-        $archivPosts = self::database()->prepare("UPDATE posts SET archived = 0 WHERE post_id = ?");
-        $archivPosts->execute([$post_id]);
+        $post =  self::find($post_id);
+
+        if ($post['archived'] == 1) {
+
+            $archivPosts = self::database()->prepare("UPDATE posts SET archived = 0 WHERE post_id = ?");
+            $archivPosts->execute([$post_id]);
+        } else {
+            $archivPosts = self::database()->prepare("UPDATE posts SET archived = 1 WHERE post_id = ?");
+            $archivPosts->execute([$post_id]);
+        }
     }
 
 

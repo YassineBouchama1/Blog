@@ -115,14 +115,28 @@ class UserModel extends BaseModel
     public static function  blockUser($userID)
     {
 
-        //archived all posts belong user admin wnats block 
-        $archivPosts = self::database()->prepare("UPDATE posts SET archived = 0 WHERE user_id = ?");
-        $archivPosts->execute([$userID]);
+        $user = self::find($userID);
 
-        //if archived his post  successfully  block him
-        if ($archivPosts) {
-            $sqlState = self::database()->prepare("UPDATE users SET isactive = 0 WHERE user_id = ?");
-            return $sqlState->execute([$userID]);
+        if ($user['isActive'] == 1) {
+            //archived all posts belong user admin wnats block 
+            $archivPosts = self::database()->prepare("UPDATE posts SET archived = 0 WHERE user_id = ?");
+            $archivPosts->execute([$userID]);
+
+            //if archived his post  successfully  block him
+            if ($archivPosts) {
+                $sqlState = self::database()->prepare("UPDATE users SET isActive = 0 WHERE user_id = ?");
+                return $sqlState->execute([$userID]);
+            }
+        } else {
+            //archived all posts belong user admin wnats block 
+            $archivPosts = self::database()->prepare("UPDATE posts SET archived = 1 WHERE user_id = ?");
+            $archivPosts->execute([$userID]);
+
+            //if archived his post  successfully  block him
+            if ($archivPosts) {
+                $sqlState = self::database()->prepare("UPDATE users SET isActive = 1 WHERE user_id = ?");
+                return $sqlState->execute([$userID]);
+            }
         }
     }
 
@@ -137,7 +151,7 @@ class UserModel extends BaseModel
 
         //if unArchive his post  successfully  block him
         if ($archivPosts) {
-            $sqlState = self::database()->prepare("UPDATE users SET isactive = 1 WHERE user_id = ?");
+            $sqlState = self::database()->prepare("UPDATE users SET isActive = 1 WHERE user_id = ?");
             return $sqlState->execute([$userID]);
         }
     }
