@@ -82,14 +82,14 @@ function builder(container_list, item) {
   </div>
 
     </div>
-    <div class="pb-4 pl-4	self-start	 text-md  ">
+    <div class="pb-4 pl-4	self-start	 text-md flex   items-center ">
         
-    <img w-[20px] h-[20px] src="${IMG_BASE_URL}${item.image_author}">
+    <img class="w-5 h-5" src="${IMG_BASE_URL}${item.image_author}">
     <span>${item.username}</span>
-    <i class="ti ti-discount-check-filled text-[#1DA1F2]"></i>
+    <i class="ti ti-discount-check-filled ml-1  text-[#1DA1F2]"></i>
 
 </div>
 `;
 
-        container_list.appendChild(card);
+    container_list.appendChild(card);
 }
