@@ -64,7 +64,8 @@ class PostModel extends BaseModel
         return static::database()->query('SELECT
         posts.*,
          categories.category_name AS category,
-         GROUP_CONCAT(tags.tag_name) AS tags
+         GROUP_CONCAT(tags.tag_name) AS tags,
+         users.username
      FROM
          posts
      LEFT JOIN
@@ -73,6 +74,8 @@ class PostModel extends BaseModel
          post_tags ON post_tags.post_id = posts.post_id
      LEFT JOIN
          tags ON tags.tag_id = post_tags.tag_id
+     LEFT JOIN 
+     users ON users.user_id = posts.user_id    
      GROUP BY
          posts.date_created DESC;
       ')
