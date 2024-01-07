@@ -16,26 +16,21 @@
 <body class=" flex  flex-col w-[100%] p-5 m-0 text-[#111C2D] bg-[#f0f5f9] dark:bg-slate-800 text-base font-normal leading-5 font-sans">
     <!-- Header Start -->
 
-    <?php require('layout/header/Header.php') ?>
+    <?php require('components/header/Header.php') ?>
 
     <!-- Header Start -->
 
 
 
 
-    
+
 
     <!--  start page content  -->
     <div class="rounded-[18px] h-full mt-6 ">
 
 
+        <?php require('components/posts/card.php') ?>
 
-        <!--  start Cards  -->
-        <div class="bg-white dark:bg-[#111c2d] dark:text-white text-black transition-shadow rounded-[18px] shadow-md  backdrop-blur-md h-[250px] w-[250px] p-4">
-            ffd
-
-        </div>
-        <!--  end Cards  -->
 
 
 

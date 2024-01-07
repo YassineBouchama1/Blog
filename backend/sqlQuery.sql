@@ -46,3 +46,20 @@ CREATE TABLE post_tags (
     FOREIGN KEY (post_id) REFERENCES posts(post_id) ON DELETE CASCADE,
     FOREIGN KEY (tag_id) REFERENCES tags(tag_id) ON DELETE CASCADE
 );
+
+
+
+SELECT
+    posts.*,
+    categories.category_name AS category,
+    GROUP_CONCAT(tags.tag_name) AS tags
+FROM
+    posts
+LEFT JOIN
+    categories ON categories.category_id = posts.category_id
+LEFT JOIN
+    post_tags ON post_tags.post_id = posts.post_id
+LEFT JOIN
+    tags ON tags.tag_id = post_tags.tag_id
+GROUP BY
+    posts.date_created;
