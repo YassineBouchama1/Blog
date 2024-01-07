@@ -1,0 +1,10 @@
+
+   text:  #0085DB.
+   colorsHoveractive  : #e5f3fb
+
+   background body:f0f5f9
+
+padding inside elements : 4 = 20px
+
+
+background darkmode : 111c2d
