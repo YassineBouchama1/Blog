@@ -22,15 +22,15 @@
 
     <div>
 
-      <i class="ti ti-home  text-3xl cursor-pointer"></i>
+      <a href="./"><i class="ti ti-home  text-3xl cursor-pointer"></i></a>
     </div>
+    <!-- <div>
+
+      <a href="categories.php"><i class="ti ti-category text-3xl cursor-pointer"></i></a>
+    </div> -->
     <div>
 
-      <i class="ti ti-category text-3xl cursor-pointer"></i>
-    </div>
-    <div>
-
-      <i class="ti ti-user text-3xl cursor-pointer"></i>
+      <a href="profile.php"> <i class="ti ti-user text-3xl cursor-pointer"></i></a>
     </div>
 
 

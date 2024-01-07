@@ -27,9 +27,9 @@
 
     <!--  start page content  -->
     <div class="rounded-[18px] h-full mt-6 ">
-        <?php require('components/categoriesList/card.php') ?>
 
-        <?php require('components/posts/card.php') ?>
+
+        <?php require('components/postDetail/postDetail.php') ?>
 
 
 

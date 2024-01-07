@@ -72,7 +72,7 @@ function builder(container_list, item) {
             <p><i class="ti ti-eye"></i> <span>${item.views} Views</span></p>
 
         </div>
-        <a href="#" class="text-center text-transparent bg-clip-text bg-gradient-to-r to-[#2AA6F8] from-[#034877] text-center mb-2 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl     ">Title Post</a>
+        <a href="post.php?post_id=${item.post_id}" class="text-center text-transparent bg-clip-text bg-gradient-to-r to-[#2AA6F8] from-[#034877] text-center mb-2 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl     ">Title Post</a>
         <p class="max-w-xs break-words text-center overflow-ellipsis">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum aspernatur quod dolorum necessitatibus. Soluta non at sit, quidem obcaecati sunt, </p>
      
 

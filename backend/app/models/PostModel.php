@@ -65,7 +65,8 @@ class PostModel extends BaseModel
         posts.*,
          categories.category_name AS category,
          GROUP_CONCAT(tags.tag_name) AS tags,
-         users.username
+         users.username,
+         users.image AS image_author
      FROM
          posts
      LEFT JOIN
@@ -84,7 +85,24 @@ class PostModel extends BaseModel
 
     public static function find($post_id)
     {
-        return static::database()->query("SELECT * FROM posts WHERE post_id =  $post_id")
+        return static::database()->query("SELECT
+        posts.*,
+        categories.category_name AS category,
+        GROUP_CONCAT(tags.tag_name) AS tags,
+         users.username,
+         users.image AS image_author
+    FROM
+        posts
+    LEFT JOIN
+        categories ON categories.category_id = posts.category_id
+    LEFT JOIN
+        post_tags ON post_tags.post_id = posts.post_id
+    LEFT JOIN
+        tags ON tags.tag_id = post_tags.tag_id
+        LEFT JOIN 
+     users ON users.user_id = posts.user_id    
+        WHERE posts.post_id = $post_id
+    ")
             ->fetch(PDO::FETCH_ASSOC);
     }
 
