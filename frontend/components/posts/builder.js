@@ -72,8 +72,8 @@ function builder(container_list, item) {
             <p><i class="ti ti-eye"></i> <span>${item.views} Views</span></p>
 
         </div>
-        <a href="post.php?post_id=${item.post_id}" class="text-center text-transparent bg-clip-text bg-gradient-to-r to-[#2AA6F8] from-[#034877] text-center mb-2 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl     ">Title Post</a>
-        <p class="max-w-xs break-words text-center overflow-ellipsis">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum aspernatur quod dolorum necessitatibus. Soluta non at sit, quidem obcaecati sunt, </p>
+        <a href="post.php?post_id=${item.post_id}" class="text-center text-transparent bg-clip-text bg-gradient-to-r to-[#2AA6F8] from-[#034877] text-center mb-2 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl     ">${item.title}</a>
+        <p class="max-w-xs break-words text-center overflow-ellipsis">${item.content}</p>
      
 
   <div class="flex flex-wrap gap-2 mt-2">
@@ -84,12 +84,12 @@ function builder(container_list, item) {
     </div>
     <div class="pb-4 pl-4	self-start	 text-md  ">
         
-    <i class="ti ti-user-circle "></i>
+    <img w-[20px] h-[20px] src="${IMG_BASE_URL}${item.image_author}">
     <span>${item.username}</span>
-    <!-- <i class="ti ti-discount-check-filled text-[#1DA1F2]"></i>  -->
+    <i class="ti ti-discount-check-filled text-[#1DA1F2]"></i>
 
 </div>
 `;
 
-    container_list.appendChild(card);
+        container_list.appendChild(card);
 }
