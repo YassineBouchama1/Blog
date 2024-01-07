@@ -3,8 +3,9 @@
 
 
     <!-- form caregory  -->
-    <div id="form_category" class="absolute h-[350px] max-w-[280px] w-full transition-all ease-in-out duration-300 scale-y-0  bg-white dark:bg-[#111c2d] dark:text-white text-black transition-shadow rounded-[18px] shadow-md  backdrop-blur-md  ">
+    <div id="form_category" class=" absolute h-[250px] max-w-[280px] w-full transition-all ease-in-out duration-300 scale-0  bg-white dark:bg-[#111c2d] dark:text-white text-black transition-shadow rounded-[18px] shadow-md  backdrop-blur-md  ">
 
+        <?php require('form.php') ?>
     </div>
     <!-- form caregory  -->
 </div>
@@ -84,21 +85,4 @@
 
 </div>
 
-<script>
-    let toggle_category = document.getElementById('toggle_category');
-    let form_category = document.getElementById('form_category');
-
-    toggle_category.addEventListener('click', onToggle);
-
-    function onToggle() {
-        console.log('hole')
-        if (form_category.classList.contains('scale-y-0')) {
-            form_category.classList.remove('scale-y-0');
-            form_category.classList.add('scale-y-100');
-        } else {
-            form_category.classList.remove('scale-y-100');
-            form_category.classList.add('scale-y-0');
-        }
-
-    }
-</script>
+<script src="components\categories\category.js"></script>

@@ -36,7 +36,9 @@
 
 
         <!--  start page content  -->
-        <div class="rounded-[18px] h-full mt-6 ">
+        <div class="rounded-[18px] flex flex-col h-full mt-6 gap-6">
+
+
 
 
 
