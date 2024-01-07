@@ -52,7 +52,7 @@ class PostController
     public static function createAction()
     {
         //List of data expected from the user
-        $requiredFields = ['user_id', 'category_id', 'title', 'content','image'];
+        $requiredFields = ['user_id', 'category_id', 'title', 'content', 'image'];
 
         // Validation
         Utility::validator($requiredFields);
@@ -192,5 +192,21 @@ class PostController
             Utility::sendResponse("There is no post under this $post_id", 404);
         }
     }
-    
+
+
+
+    public static function incressViews()
+    {
+        // Reception data from query id
+        $post_id = isset($_GET['post_id']) ? $_GET['post_id'] : null;
+
+        $post = PostModel::views($post_id);
+
+        // Check if the category is deleted
+        if ($post) {
+            Utility::sendResponse("post with ID: $post_id Incress Views", 200);
+        } else {
+            Utility::sendResponse("There is no post under this $post_id", 404);
+        }
+    }
 }

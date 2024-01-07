@@ -11,6 +11,10 @@ let container_list = document.getElementById('container_list')
 
 
 
+
+
+
+
 //this function bring data from server and send it to
 // function <builder> to create
 async function onLoadBuild() {
@@ -33,7 +37,7 @@ async function onLoadBuild() {
 
 //this function for building cards Category
 //required:container div  and data 
-function builder(container_list, item) {
+async function builder(container_list, item) {
 
     let isActivePost = item.archived === 1;
 
@@ -52,6 +56,7 @@ function builder(container_list, item) {
     </button>
 `).join('');
 
+    const relativeTime = await timeAgo(item.date_created);
 
 
     const card = document.createElement('article');
@@ -68,7 +73,7 @@ function builder(container_list, item) {
     </div>
     <div class="p-4 text-center">
         <div class="flex justify-around mb-4">
-            <p><i class="ti ti-clock-hour-5"></i> <span>20 Minuts</span></p>
+            <p><i class="ti ti-clock-hour-5"></i> <span>${relativeTime}</span></p>
             <p><i class="ti ti-eye"></i> <span>${item.views} Views</span></p>
 
         </div>

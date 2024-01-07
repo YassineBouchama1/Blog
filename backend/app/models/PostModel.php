@@ -203,7 +203,13 @@ class PostModel extends BaseModel
         return $sqlState->execute([$post_id]);
     }
 
+    //incress views  post 
+    public static function views($post_id)
+    {
 
+        $sqlState = static::database()->prepare("UPDATE posts SET views = views + 1 WHERE post_id = $post_id");
+        return $sqlState->execute();
+    }
 
 
     // this fuction for  save tags

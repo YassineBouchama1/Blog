@@ -27,7 +27,9 @@ if (isset($_GET['action'])) {
         case 'archive':
             PostController::archiveAction();
             break;
-
+        case 'views':
+            PostController::incressViews();
+            break;
         default:
             echo "Page Not found 404";
             break;

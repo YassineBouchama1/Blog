@@ -24,19 +24,19 @@ CREATE TABLE tags (
 );
 
 
-CREATE TABLE posts (
-    post_id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT,
-    category_id INT,
-    title VARCHAR(100) NOT NULL,
-    content TEXT NOT NULL,
-    image VARCHAR(255) NOT NULL,
-    views INT UNSIGNED DEFAULT 0, 
-    date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    archived BOOLEAN DEFAULT 1,
-    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE, 
-    FOREIGN KEY (category_id) REFERENCES categories(category_id) ON DELETE CASCADE
-);
+    CREATE TABLE posts (
+        post_id INT AUTO_INCREMENT PRIMARY KEY,
+        user_id INT,
+        category_id INT,
+        title VARCHAR(100) NOT NULL,
+        content TEXT NOT NULL,
+        image VARCHAR(255) NOT NULL,
+        views INT UNSIGNED DEFAULT 0, 
+        date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        archived BOOLEAN DEFAULT 1,
+        FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE, 
+        FOREIGN KEY (category_id) REFERENCES categories(category_id) ON DELETE CASCADE
+    );
 
 
 CREATE TABLE post_tags (
