@@ -2,6 +2,14 @@
 <html lang="en">
 
 <head>
+    <script>
+        // check if url has userid 
+        const searchParamsChecker = new URLSearchParams(window.location.search);
+
+        if (!searchParamsChecker.has('user_id')) {
+            window.location.href = './'
+        }
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>

@@ -90,7 +90,7 @@ async function builder(container_list, item) {
     <div class="pb-4 pl-4	self-start	 text-md flex   items-center ">
         
     <img class="w-5 h-5" src="${IMG_BASE_URL}${item.image_author}">
-    <span>${item.username}</span>
+    <a href="profile.php?action=userPosts&user_id=${item.user_id}"><span>${item.username}</span></a>
     <i class="ti ti-discount-check-filled ml-1  text-[#1DA1F2]"></i>
 
 </div>
