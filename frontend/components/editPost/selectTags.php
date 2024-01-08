@@ -20,12 +20,10 @@
                 <div class="my-2 p-1 flex border border-gray-200 bg-transparent rounded ">
                     <div id="selected_tags" class="flex flex-auto flex-wrap min-h-[20px]">
 
-                        <div class="flex justify-center items-center m-1 font-medium py-1 px-2 bg-white rounded-full text-[#0274C0] bg-[#0085DB] border border-[#0085DB] ">
 
-                        </div>
 
                         <div class="flex-1">
-                            <input placeholder="" class="bg-transparent p-1 px-2 appearance-none outline-none h-full w-full text-gray-800">
+                            <input placeholder="sfsd" class="bg-transparent p-1 px-2 appearance-none outline-none h-full w-full text-gray-800">
                         </div>
                     </div>
 

@@ -2,8 +2,8 @@ const API_BASE_URL = 'http://localhost/blog/backend/auth.php';
 
 document.addEventListener('DOMContentLoaded', function () {
     let avatar = document.getElementById('avatar');
-    let loader = document.getElementById('loader')
     let avatarInput = document.getElementById('avatarInput');
+    let loader = document.getElementById('loader')
     let username = document.getElementById('username');
     let email = document.getElementById('email');
     let error_msg = document.getElementById('error_msg');

@@ -217,6 +217,9 @@ class PostModel extends BaseModel
     {
         $tagIds = []; // here we will store ids tags
 
+        //remove all tags to add it again
+        $sqlState = self::database()->prepare("DELETE FROM post_tags WHERE post_id = ?");
+        $sqlState->execute([$postId]);
 
         // 1 loop throught array tags
         foreach ($tags as $tagName) {

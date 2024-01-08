@@ -47,6 +47,7 @@
                     </div>
                     <div class="col-span-full">
                         <label for="photo" class="block text-sm font-medium leading-6 text-gray-900  dark:text-white">Cover</label>
+                        <img id="displatImg" class="max-h-[100px] max-w-[100px] my-2" alt="post">
                         <input type="file" name="image" id="image" class="block max-w-[200px] mb-5 text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" ">
 
                     </div>
@@ -72,6 +73,10 @@
 </section>
 
 
+<?php require('components\loader.php') ?>
 
+
+
+<script src="components\editPost\func.js"></script>
+<script src="components\editPost\api.js"></script>
 <script src="components\editPost\edit.js"></script>
-<script src="components\editPost\tag.js"></script>
