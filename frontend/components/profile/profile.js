@@ -110,7 +110,9 @@ async function builder(container_list, item) {
     <div class="p-4 text-center">
         <div class="flex justify-around mb-4">
             <p><i class="ti ti-clock-hour-5"></i> <span>${relativeTime}</span></p>
+
             <p><i class="ti ti-eye"></i> <span>${item.views} Views</span></p>
+
 
         </div>
         <a href="post.php?post_id=${item.post_id}" class="text-center text-transparent bg-clip-text bg-gradient-to-r to-[#2AA6F8] from-[#034877] text-center mb-2 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl     ">${item.title}</a>
@@ -123,11 +125,13 @@ async function builder(container_list, item) {
   </div>
 
     </div>
-    <div class="pb-4 pl-4	self-start	 text-md flex   items-center ">
+    <div class="relative pb-4 pl-4 w-full	self-start	 text-md flex   items-center ">
         
     <img class="w-5 h-5" src="${IMG_BASE_URL}${item.image_author}">
     <span>${item.username}</span>
     <i class="ti ti-discount-check-filled ml-1  text-[#1DA1F2]"></i>
+    
+    <a href="./edit.php?post_id=9" class="absolute right-1  	  text-md"><i class="ti ti-edit text-green-500"></i>Edit </a>
 
 </div>
 `;
