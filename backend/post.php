@@ -30,6 +30,9 @@ if (isset($_GET['action'])) {
         case 'views':
             PostController::incressViews();
             break;
+        case 'delete':
+            PostController::destroyAction();
+            break;
         default:
             echo "Page Not found 404";
             break;

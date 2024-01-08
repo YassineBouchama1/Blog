@@ -1,11 +1,12 @@
 const API_BASE_URL = 'http://localhost/blog/backend/user.php';
+const POST_BASE_URL = 'http://localhost/blog/backend/post.php';
 const IMG_BASE_URL = 'http://localhost/blog/backend/';
 
 
 document.addEventListener('DOMContentLoaded', onLoadBuilduser)
 document.addEventListener('DOMContentLoaded', onLoadBuildPosts)
 
-
+let user_id = localStorage.getItem('user_id') ? localStorage.getItem('user_id') : ''
 
 let container_list = document.getElementById('container_list')
 let image_profile = document.getElementById('image_profile')
@@ -18,7 +19,7 @@ const searchParams = new URLSearchParams(window.location.search);
 
 
 
-
+console.log(user_id)
 
 async function onLoadBuilduser() {
   try {
@@ -90,15 +91,17 @@ async function builder(container_list, item) {
         ${tag.trim()}
     </button>
 `).join('');
-
+  console.log(tags)
   // build time ago from data created post
   const relativeTime = await timeAgo(item.date_created);
 
 
   const card = document.createElement('article');
 
+  let isOwner = item.user_id == user_id
 
 
+  console.log(isOwner)
   card.classList = 'relative flex flex-col items-center min-h-[250px] h-auto max-w-[300px] w-full bg-white dark:bg-[#111c2d] dark:text-white text-black transition-shadow rounded-[18px] shadow-md  backdrop-blur-md ';
   card.innerHTML = `
    
@@ -130,11 +133,30 @@ async function builder(container_list, item) {
     <img class="w-5 h-5" src="${IMG_BASE_URL}${item.image_author}">
     <span>${item.username}</span>
     <i class="ti ti-discount-check-filled ml-1  text-[#1DA1F2]"></i>
+    ${isOwner ? '<a href="./edit.php?post_id=' + item.post_id + '" class="absolute right-1 text-md"><i class="ti ti-edit text-green-500"></i>Edit </a>' : ''}
+    ${isOwner ? '<button onclick="onDeletePost(' + item.post_id + ')"  class="absolute  right-10 text-md"><i class="ti ti-elete text-red-500"></i>Delete </button>' : ''}
+
     
-    <a href="./edit.php?post_id=9" class="absolute right-1  	  text-md"><i class="ti ti-edit text-green-500"></i>Edit </a>
 
 </div>
 `;
 
   container_list.appendChild(card);
+}
+
+
+async function onDeletePost(id) {
+
+  try {
+    let routePromise = await fetch(`${POST_BASE_URL}?action=delete&post_id=${id}`);
+
+
+
+    let response = await routePromise.json();
+    console.log(response);
+    onLoadBuildPosts()
+
+  } catch (error) {
+    console.error(error);
+  }
 }

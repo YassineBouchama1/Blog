@@ -196,7 +196,7 @@ class PostModel extends BaseModel
     public static function destroy($post_id)
     {
         // Then, delete the post tag
-        $sqlState = static::database()->prepare("DELETE FROM post_tag WHERE post_id = ?");
+        $sqlState = static::database()->prepare("DELETE FROM post_tags WHERE post_id = ?");
         return $sqlState->execute([$post_id]);
 
         $sqlState = self::database()->prepare("DELETE FROM posts WHERE post_id = ?");

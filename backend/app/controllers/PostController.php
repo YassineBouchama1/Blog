@@ -167,7 +167,7 @@ class PostController
 
 
     // Delete category by id
-    public function destroyAction()
+    public static function destroyAction()
     {
         // Reception data from query id
         $post_id = isset($_GET['post_id']) ? $_GET['post_id'] : null;
@@ -175,9 +175,9 @@ class PostController
 
         // Check if the category is deleted
         if ($category) {
-            Utility::sendResponse("Category with ID: $post_id deleted", 200);
+            Utility::sendResponse("Post with ID: $post_id deleted", 200);
         } else {
-            Utility::sendResponse("There is no category under this $post_id", 404);
+            Utility::sendResponse("There is no Post under this $post_id", 404);
         }
     }
 
