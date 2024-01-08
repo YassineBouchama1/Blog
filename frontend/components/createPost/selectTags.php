@@ -41,7 +41,7 @@
     </div>
 </div>
 </div>
-
+<!-- 
 <script>
     document.addEventListener('DOMContentLoaded', async function() {
 
@@ -167,4 +167,4 @@
         }
 
     })
-</script>
+</script> -->

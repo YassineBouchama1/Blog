@@ -3,19 +3,23 @@ const API_Category_URL = 'http://localhost/blog/backend/category.php';
 const API_TAG_URL = 'http://localhost/blog/backend/tag.php';
 
 
-
 const btnCreate = document.getElementById('btnCreate');
-const image = document.getElementById('image');
-const title = document.getElementById('title');
-const content = document.getElementById('content');
-const categorySelector = document.getElementById('category');
+let image = document.getElementById('image');
+let title = document.getElementById('title');
+let content = document.getElementById('content');
+let categorySelector = document.getElementById('category');
+let user_id = localStorage.getItem('user_id') ? localStorage.getItem('user_id') : 2
+let tagsSelected = [] //  we will use this arry in create post
 
+let error_msg = document.getElementById('error_msg');
 
-const error_msg = document.getElementById('error_msg');
 
 
 
 document.addEventListener('DOMContentLoaded', async function () {
+
+
+
 
 
     //fetch all categoriies
@@ -27,7 +31,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         let response = await routePromise.json();
         console.log(response);
         // build  options inside category seector
-
         response.map((item) => fillInputsCategory(categorySelector, item)
         )
 
@@ -35,10 +38,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     } catch (error) {
         console.error(error);
     }
-
-
-
-    // fetch all tags
 
 
 
@@ -52,13 +51,24 @@ btnCreate.addEventListener('click', onBtnFormClick);
 
 
 
-// on click BtnForm
+// on click BtnFormCreate
 async function onBtnFormClick() {
     console.log('clicked create')
+    console.log(tagsSelected)
     //validation inputs
     if (title.value.trim() === '') {
         return error_msg.textContent = 'title is Required'
     }
+    if (content.value.trim() === '') {
+        return error_msg.textContent = 'content is Required'
+    }
+    if (categorySelector.value === '') {
+        return error_msg.textContent = 'category is Required'
+    }
+    if (user_id === '') {
+        return error_msg.textContent = 'user id  is Required'
+    }
+
     if (image.files.length === 0) {
         return error_msg.textContent = 'image is Required'
     }
@@ -70,6 +80,11 @@ async function onBtnFormClick() {
     //create formdata to send it to server
     const formData = new FormData();
     formData.append('title', title.value);
+    formData.append('content', title.value);
+    formData.append('category_id', categorySelector.value);
+    formData.append('user_id', user_id);
+    //check if author add tags or not
+    tagsSelected === 0 ? null : formData.append('tags', tagsSelected.join(","));
     formData.append('image', image.files[0]);
 
 
@@ -84,8 +99,8 @@ async function onBtnFormClick() {
         let response = await routePromise.json();
         console.log(response);
         title.value = ''
-        image.files.length = 0
-        onLoadBuild();
+
+        //   window.location.replace
 
         console.log('created')
     } catch (error) {
@@ -107,7 +122,7 @@ async function onBtnFormClick() {
 
 
 
-
+// to fill options categories
 function fillInputsCategory(categorySelector, optionValue) {
     const option = document.createElement('option');
     option.value = optionValue.category_id;

@@ -52,15 +52,18 @@ class PostController
     public static function createAction()
     {
         //List of data expected from the user
-        $requiredFields = ['user_id', 'category_id', 'title', 'content', 'image'];
+        $requiredFields = ['user_id', 'category_id', 'title', 'content'];
 
         // Validation
         Utility::validator($requiredFields);
 
+        $image = isset($_FILES['image']) ? $_FILES['image'] : null;
+
+
         // Check if data is sent in the POST request
         $tags = isset($_POST['tags']) ? explode(',', $_POST['tags']) : [];
 
-
+        if ($image === null) return Utility::sendResponse('image is Required', 404);
         // Upload image to path
         $targetDirectory = 'uploads/posts/';
         $result = uploadImage('image', $targetDirectory);

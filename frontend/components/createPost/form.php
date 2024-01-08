@@ -8,10 +8,10 @@
             <div class="border-b border-gray-900/10 pb-12">
                 <h2 class="text-base font-semibold leading-7 text-gray-900 dark:text-white">Create Post</h2>
                 <p class="mt-1 text-sm leading-6 text-gray-600 dark:text-white">You can use Our AI To Help You Create Your Article.</p>
-
+                <p id="error_msg" class="text-red-500"></p>
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div class="sm:col-span-4">
-                        <label for="username" class="block text-sm font-medium leading-6 text-gray-900  dark:text-white">Title</label>
+                        <label for="username" class="block text-sm font-medium leading-6 text-gray-900  dark:text-white">Title<span class="text-red-500">*</span></label>
                         <div class="mt-2">
                             <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
 
@@ -21,13 +21,13 @@
                     </div>
 
                     <div class="col-span-full">
-                        <label for="about" class="block text-sm font-medium leading-6 text-gray-900  dark:text-white ">Content</label>
+                        <label for="about" class="block text-sm font-medium leading-6 text-gray-900  dark:text-white ">Content<span class="text-red-500">*</span></label>
                         <div class="mt-2">
                             <textarea id="content" name="content" rows="3" class="bg-transparent block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
                         </div>
                     </div>
                     <div class="sm:col-span-4">
-                        <label for="category" class="block text-sm font-medium leading-6 text-gray-900  dark:text-white">Category</label>
+                        <label for="category" class="block text-sm font-medium leading-6 text-gray-900  dark:text-white">Category<span class="text-red-500">*</span></label>
                         <div class="mt-2">
 
                             <select name="category" id="category" class="bg-white drak:text-white border-0 cursor-pointer rounded-lg  px-4 py-2 drop-shadow-md   w-72 duration-300 ">
@@ -51,7 +51,7 @@
                     </div>
 
                     <div class=" col-span-full">
-                        <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900  dark:text-white">Cover photo</label>
+                        <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900  dark:text-white">Cover photo<span class="text-red-500">*</span></label>
                         <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
 
                         </div>
@@ -72,4 +72,5 @@
 
 
 
+<script src="components\createPost\tag.js"></script>
 <script src="components\createPost\create.js"></script>
