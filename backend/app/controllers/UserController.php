@@ -52,7 +52,22 @@ class UserController
         Utility::sendResponse("there is no user under this $user_id", 404);
     }
 
+    // get user by id
+    public static function findUserWithPostAction()
+    {
+        //Reception data from query id
+        extract($_GET);
+        $user = UserModel::findWithPosts($user_id);
 
+
+        // check if  there is a user
+        if ($user) {
+
+            echo json_encode($user); //array
+            return;
+        }
+        Utility::sendResponse("there is no user under this $user_id", 404);
+    }
 
 
     // block user

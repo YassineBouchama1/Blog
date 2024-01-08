@@ -10,15 +10,16 @@
   <div class="  flex justify-center items-center gap-x-4">
     <!-- <button id="toggleSideBar"><i class="lg:hidden  flex ti ti-menu-2 text-xl cursor-pointer block "> </i></button> -->
 
-    <div class="hidden relative flex items-center w-full  rounded-full  border-2	 py-1 bg-white overflow-hidden">
+    <!-- <div class="dark:bg-[#111c2d] bg-white relative flex items-center w-full rounded-full border-2 dark:border-[#111c2d] py-1 overflow-hidden">
       <div class="grid place-items-center h-full w-12 text-gray-300">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
         </svg>
       </div>
 
-      <input class=" peer h-full w-full outline-none text-sm text-gray-700 pr-2" type="text" id="search" placeholder="Search something.." />
-    </div>
+      <input class=" h-full w-full outline-none text-sm text-gray-700 pr-2 dark:bg-[#111c2d]   light:bg-white  " type="text" id="search" placeholder="Search something.." />
+    </div> -->
+
 
     <div>
 
@@ -32,7 +33,10 @@
 
       <a href="profile.php"> <i class="ti ti-user text-3xl cursor-pointer"></i></a>
     </div>
+    <div>
 
+      <a href="/"> <i class="ti ti-logout text-3xl cursor-pointer"></i></a>
+    </div>
 
     <!-- switcher drk mode -->
     <div>

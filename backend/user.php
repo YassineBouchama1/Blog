@@ -16,8 +16,11 @@ if (isset($_GET['action'])) {
             break;
 
             // find user by passing user_id in url 
-        case 'user':
+        case 'find':
             UserController::findUserAction();
+            break;
+        case 'userPosts':
+            UserController::findUserWithPostAction();
             break;
 
 
