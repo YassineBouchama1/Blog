@@ -29,7 +29,7 @@
     <div class="rounded-[18px] h-full mt-6 ">
 
 
-        <?php require('components/createPost/create.php') ?>
+        <?php require('components/createPost/form.php') ?>
 
 
 
