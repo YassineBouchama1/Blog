@@ -3,7 +3,9 @@
 
 
   <div>
-    <h1 class="font-bold text-2x1">NewsDev</h1>
+    <a href="./">
+      <h1 class="font-bold text-2x1">NewsDev</h1>
+    </a>
   </div>
 
 
@@ -29,14 +31,14 @@
 
       <a href="categories.php"><i class="ti ti-category text-3xl cursor-pointer"></i></a>
     </div> -->
-    <div>
 
-      <a href="profile.php"> <i class="ti ti-user text-3xl cursor-pointer"></i></a>
-    </div>
-    <div>
 
-      <a href="/"> <i class="ti ti-logout text-3xl cursor-pointer"></i></a>
-    </div>
+    <a href="./auth/login.php" id="profileLink" class="isAutor"> <i class="ti ti-user text-3xl cursor-pointer"></i></a>
+
+
+
+    <button id="logout" class="isAutor"> <i class="ti ti-logout  text-3xl cursor-pointer"></i></button>
+
 
     <!-- switcher drk mode -->
     <div>
@@ -57,4 +59,4 @@
   </div>
 
 </header>
-<!-- <script src="layout\header\header.js"></script> -->
+<script src="components\header\header.js"></script>

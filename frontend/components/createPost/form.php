@@ -9,6 +9,7 @@
                 <h2 class="text-base font-semibold leading-7 text-gray-900 dark:text-white">Create Post</h2>
                 <p class="mt-1 text-sm leading-6 text-gray-600 dark:text-white">You can use Our AI To Help You Create Your Article.</p>
                 <p id="error_msg" class="text-red-500"></p>
+                <p id="successfully_msg" class="text-green-500"></p>
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div class="sm:col-span-4">
                         <label for="username" class="block text-sm font-medium leading-6 text-gray-900  dark:text-white">Title<span class="text-red-500">*</span></label>

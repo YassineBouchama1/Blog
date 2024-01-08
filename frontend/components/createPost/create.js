@@ -12,6 +12,8 @@ let user_id = localStorage.getItem('user_id') ? localStorage.getItem('user_id') 
 let tagsSelected = [] //  we will use this arry in create post
 
 let error_msg = document.getElementById('error_msg');
+let successfully_msg = document.getElementById('successfully_msg');
+
 
 
 
@@ -80,7 +82,7 @@ async function onBtnFormClick() {
     //create formdata to send it to server
     const formData = new FormData();
     formData.append('title', title.value);
-    formData.append('content', title.value);
+    formData.append('content', content.value);
     formData.append('category_id', categorySelector.value);
     formData.append('user_id', user_id);
     //check if author add tags or not
@@ -98,9 +100,18 @@ async function onBtnFormClick() {
 
         let response = await routePromise.json();
         console.log(response);
-        title.value = ''
 
+
+        title.value = ''
+        content.value = ''
+        categorySelector.value = ''
+        tagsSelected.length = 0
+        image.length = 0
         //   window.location.replace
+        successfully_msg.textContent = "Post Created"
+        
+        //scrolll to the top page after post created
+        window.scrollTo(0, 0);
 
         console.log('created')
     } catch (error) {

@@ -4,7 +4,7 @@
 
 require 'app/models/AuthModel.php';
 require 'app/lib/Utility.php';
-
+require 'app/lib/uploadImage.php';
 // use app\models\Company;
 
 
@@ -29,7 +29,7 @@ class AuthController
 
         // extract($_POST);
         //list of data expect user send it 
-        $requiredFields = ['username', 'email', 'password', 'role'];
+        $requiredFields = ['username', 'email', 'password'];
 
         //validation
         Utility::validator($requiredFields);
@@ -39,9 +39,9 @@ class AuthController
         $email = isset($_POST['email']) ? $_POST['email'] : null;
         $password = isset($_POST['password']) ? $_POST['password'] : null;
         $role = isset($_POST['role']) ? $_POST['role'] : null;
-        // $image = isset($_POST['image']) ? $_POST['image'] : null;
+        $image = isset($_POST['image']) ? $_POST['image'] : null;
 
-        $image = isset($_FILES['image']) ? $_FILES['image'] : null;
+        // $image = isset($_FILES['image']) ? $_FILES['image'] : null;
 
 
 
@@ -117,10 +117,12 @@ class AuthController
         $auth->setEmail($email);
         $auth->setPassword($password);
 
+        $user = $auth->login();
 
-
-        if ($auth->login()) {
-            Utility::sendResponse("Login successfully", 200);
+        if ($user) {
+            http_response_code(200);
+            echo json_encode(["message" => "Login successfully", "user" => $user, "status" => 200]);
+            // Utility::sendResponse("Login successfully", 200);
         } else {
             Utility::sendResponse("Failed to Login ", 500);
         }
