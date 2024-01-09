@@ -26,7 +26,9 @@
             <ul id="result_Search" class="bg-white border border-gray-100 w-full mt-2  max-h-[200px] w-[250px] overflow-y-auto scrollbar-hide">
 
 
-
+                <li id="searching_Loading" class="hidden px-2 py-1 border-b-2 border-gray-100 flex justify-start items-center gap-x-1 cursor-pointer hover:bg-yellow-50 hover:text-gray-900">
+                    <p>Searching...</p>
+                </li>
 
             </ul>
         </div>
@@ -35,4 +37,5 @@
     </div>
 
 </div>
+<script src="lib\debounce.js"></script>
 <script src="components\searchBar\search.js"></script>

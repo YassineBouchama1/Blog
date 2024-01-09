@@ -7,7 +7,12 @@ let closeSearch = document.getElementById('closeSearch')
 const resultSearch = document.getElementById('result_Search');
 let resultLength = document.getElementById('resultLength')
 
-searchInput.addEventListener('input', onLoadSearch);
+let searching_Loading = document.getElementById('searching_Loading')
+
+const onSearchDebounced = debounce(onLoadSearch, 500);
+searchInput.addEventListener('input', onSearchDebounced);
+
+
 
 
 closeSearch.addEventListener('click', function () {
@@ -15,17 +20,21 @@ closeSearch.addEventListener('click', function () {
 })
 
 async function onLoadSearch() {
+    searching_Loading.classList.remove('hidden')
     console.log('onsearch')
     try {
         const routePromise = await fetch(`${API_FILTER_URL}?action=search&word=${searchInput.value}`);
         const data = await routePromise.json();
         console.log(data)
         resultLength.textContent = data.length
+        searching_Loading.classList.add('hidden')
         if (data.length > 0) {
 
             resultSearch.innerHTML = '';
             data.forEach(item => builderResultSearch(item));
         } else {
+            searching_Loading.classList.add('hidden')
+
             resultSearch.innerHTML = `    <li class=" px-2 py-1 border-b-2 border-gray-100 flex justify-start items-center gap-x-1 cursor-pointer hover:bg-yellow-50 hover:text-gray-900">
             <p>No Posts Aviable</p>
         </li>`
