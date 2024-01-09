@@ -13,7 +13,7 @@
 
 </head>
 
-<body class=" flex  flex-col w-[100%] p-5 m-0 text-[#111C2D] bg-[#f0f5f9] dark:bg-slate-800 text-base font-normal leading-5 font-sans">
+<body class=" flex  flex-col w-[100%] p-5 m-0 text-[#111C2D] bg-white dark:bg-slate-800 duration-300 ease-in-out text-base font-normal leading-5 font-sans">
     <!-- Header Start -->
 
     <?php require('components/header/Header.php') ?>

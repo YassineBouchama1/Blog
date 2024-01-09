@@ -18,10 +18,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   let logoutBtn = document.getElementById('logout')
+  let createBtn = document.getElementById('logout')
   // let profileLink = document.getElementById('profileLink');
 
   if (localStorage.getItem('role') === 'author') {
     logoutBtn.classList.remove('hidden')
+    createBtn.classList.remove('hidden')
     // profileLink.classList.remove('hidden')
     profileLink.href = `profile.php?action=userPosts&user_id=${localStorage.getItem('user_id')}`;
   }

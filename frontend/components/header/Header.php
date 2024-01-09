@@ -1,15 +1,15 @@
-<header class="z-[999] bg-white dark:bg-[#111c2d] dark:text-white transition-shadow px-5  min-h-[70px]  duration-300 ease-in-out flex  w-full box-border  items-center justify-between sticky top-0 right-0 color-opacity-87   shadow-md rounded-[18px] backdrop-blur-md">
+<header class="z-[999] bg-white dark:bg-[#1f1d2b] dark:text-white  px-5  min-h-[70px]    flex  w-full md:gap-0 gap-2 md:flex-row flex-col  items-center justify-between  color-opacity-87    backdrop-blur-md mb-20">
 
 
 
   <div>
     <a href="./">
-      <h1 class="font-bold text-2x1">NewsDev</h1>
+      <img src="assets\logo-dark.png">
     </a>
   </div>
 
 
-  <div class="  flex justify-center items-center gap-x-4">
+  <div class="  flex justify-center items-center gap-x-4 ">
     <!-- <button id="toggleSideBar"><i class="lg:hidden  flex ti ti-menu-2 text-xl cursor-pointer block "> </i></button> -->
 
     <!-- <div class="dark:bg-[#111c2d] bg-white relative flex items-center w-full rounded-full border-2 dark:border-[#111c2d] py-1 overflow-hidden">
@@ -23,25 +23,76 @@
     </div> -->
 
 
-    <div>
+    <div class="group ">
 
       <a href="./"><i class="ti ti-home  text-3xl cursor-pointer"></i></a>
+      <div class="group-hover:flex hidden popover absolute bg-gray-700 border shadow-md mt-2 px-4 py-2 rounded-lg">
+
+        <p class="text-white ">Home</p>
+      </div>
     </div>
-    <!-- <div>
+    <div class="group ">
 
       <a href="categories.php"><i class="ti ti-category text-3xl cursor-pointer"></i></a>
-    </div> -->
+
+      <div class="group-hover:flex hidden popover absolute bg-gray-700 border shadow-md mt-2 px-4 py-2 rounded-lg">
+
+        <p class="text-white ">Categories</p>
+      </div>
+    </div>
+
+    <div class="group ">
+
+      <a class="" href="poupler.php"><i class=" ti ti-heart text-3xl cursor-pointer"></i></a>
+
+      <div class="group-hover:flex hidden popover absolute bg-gray-700 border shadow-md mt-2 px-4 py-2 rounded-lg">
+
+        <p class="text-white ">Poupler</p>
+      </div>
+    </div>
+    <div class="group ">
+
+      <a class="" href="archive.php"><i class=" ti ti-archive text-3xl cursor-pointer"></i></a>
+
+      <div class="group-hover:flex hidden popover absolute bg-gray-700 border shadow-md mt-2 px-4 py-2 rounded-lg">
+
+        <p class="text-white ">archive</p>
+      </div>
+    </div>
+
+    <div class="group ">
+
+      <a href="./auth/login.php" id="profileLink" class="isAutor">
+        <i class="ti ti-user text-3xl cursor-pointer"></i>
+      </a>
+
+      <div class="group-hover:flex hidden popover absolute bg-gray-700 border shadow-md mt-2 px-4 py-2 rounded-lg">
+
+        <p class="text-white ">Profile</p>
+      </div>
+    </div>
+
+    <div class="group ">
+      <button id="logout" class="isAutor">
+        <i class="ti ti-logout  text-3xl cursor-pointer"></i>
+      </button>
+      <div class="group-hover:flex hidden popover absolute bg-gray-700 border shadow-md mt-2 px-4 py-2 rounded-lg">
+
+        <p class="text-white ">Logout</p>
+      </div>
+    </div>
 
 
-    <a href="./auth/login.php" id="profileLink" class="isAutor"> <i class="ti ti-user text-3xl cursor-pointer"></i></a>
 
+    <div id="createBtn" class="group ">
+      <a href="./create.php" id="createPost" class="isAutor">
+        <i class="ti ti-plus text-[#0085DB] text-3xl cursor-pointer"></i>
+      </a>
+      <div class="group-hover:flex hidden popover absolute bg-gray-700 border shadow-md mt-2 px-4 py-2 rounded-lg">
 
-
-    <button id="logout" class="isAutor"> <i class="ti ti-logout  text-3xl cursor-pointer"></i></button>
-
-
-    <a href="./create.php" id="createPost" class="isAutor"> <i class="ti ti-plus text-[#0085DB] text-3xl cursor-pointer"></i></a>
-
+        <p class="text-white ">Create</p>
+      </div>
+    </div>
     <!-- switcher drk mode -->
     <div>
 

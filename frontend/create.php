@@ -39,7 +39,7 @@
 
         <?php require('components/createPost/form.php') ?>
 
-
+        <?php require('Assistant\bot.php') ?>
 
 
 

@@ -1,26 +1,48 @@
+<footer class="bg-white dark:bg-[#1f1d2b] border-t border-white">
+  <div class="relative mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 lg:pt-24">
+    <div class="absolute end-4 top-4 sm:end-6 sm:top-6 lg:end-8 lg:top-8">
+      <a class="inline-block rounded-full bg-[#0085DB] p-2 text-white shadow transition hover:bg-[#004E83] sm:p-3 lg:p-4" href="#MainContent">
+        <span class="sr-only">Back to top</span>
 
-  <!-- footer -->
-  <footer class="border-t mt-32 pt-12 pb-32 px-4 lg:px-0">
-    <div class="flex">
-
-      <div class="w-full md:w-1/3 lg:w-1/4">
-        <h6 class="font-semibold text-gray-700 mb-4">Company</h6>
-        <ul>
-          <li> <a href="" class="block text-gray-600 py-2">Team</a> </li>
-          <li> <a href="" class="block text-gray-600 py-2">About us</a> </li>
-          <li> <a href="" class="block text-gray-600 py-2">Press</a> </li>
-        </ul>
-      </div>
-
-      <div class="w-full md:w-1/3 lg:w-1/4">
-        <h6 class="font-semibold text-gray-700 mb-4">Content</h6>
-        <ul>
-          <li> <a href="" class="block text-gray-600 py-2">Blog</a> </li>
-          <li> <a href="" class="block text-gray-600 py-2">Privacy Policy</a> </li>
-          <li> <a href="" class="block text-gray-600 py-2">Terms & Conditions</a> </li>
-          <li> <a href="" class="block text-gray-600 py-2">Documentation</a> </li>
-        </ul>
-      </div>
-
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
+        </svg>
+      </a>
     </div>
-  </footer>
+
+    <div class="lg:flex lg:items-end lg:justify-between">
+      <div>
+        <div class="flex justify-center text-teal-600 lg:justify-start">
+          <h2 class="text-black dark:text-white/80 font-extrabold">NewsDev</h2>
+        </div>
+
+        <p class="mx-auto mt-6 max-w-md dark:text-white text-center leading-relaxed text-gray-500 lg:text-left">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt consequuntur amet culpa
+          cum itaque neque.
+        </p>
+      </div>
+
+      <ul class="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12">
+        <li>
+          <a class="text-gray-700 transition hover:text-gray-700/7 dark:text-white" href="/"> About </a>
+        </li>
+
+        <li>
+          <a class="text-gray-700 transition hover:text-gray-700/75 dark:text-white" href="/"> Services </a>
+        </li>
+
+        <li>
+          <a class="text-gray-700 transition hover:text-gray-700/75 dark:text-white" href="/"> Projects </a>
+        </li>
+
+        <li>
+          <a class="text-gray-700 transition hover:text-gray-700/75 dark:text-white" href="/"> Blog </a>
+        </li>
+      </ul>
+    </div>
+
+    <p class="mt-12 text-center text-sm text-gray-500 lg:text-right dark:text-white">
+      Copyright &copy; 2024. All rights reserved.
+    </p>
+  </div>
+</footer>

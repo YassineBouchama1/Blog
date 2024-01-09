@@ -1,5 +1,5 @@
 const API_BASE_URL = 'http://localhost/blog/backend/post.php';
-// const IMG_BASE_URL = 'http://localhost/blog/backend/';
+const IMG_BASE_URL = 'http://localhost/blog/backend/';
 
 
 document.addEventListener('DOMContentLoaded', onLoadBuild)
@@ -18,7 +18,7 @@ let container_list = document.getElementById('container_list')
 //this function bring data from server and send it to
 // function <builder> to create
 async function onLoadBuild() {
- 
+
 
     try {
         const routePromise = await fetch(API_BASE_URL);
@@ -26,9 +26,9 @@ async function onLoadBuild() {
 
 
 
-        container_list.innerHTML = '';
-        await data.forEach(item => builder(container_list, item));
-     
+        // container_list.innerHTML = '';
+        // await data.forEach(item => builder(container_list, item));
+
 
     } catch (error) {
         console.error("Error fetching compines:", error);
@@ -66,7 +66,7 @@ async function builder(container_list, item) {
 
 
 
-    card.classList = 'relative flex flex-col items-center min-h-[250px] h-auto max-w-[300px] w-full bg-white dark:bg-[#111c2d] dark:text-white text-black transition-shadow rounded-[18px] shadow-md  backdrop-blur-md ';
+    card.classList = 'relative flex flex-col items-center min-h-[250px] h-auto max-w-[300px] w-full bg-[#e5e5e5] dark:bg-[#111c2d] dark:text-white text-black transition-shadow rounded-[18px] shadow-md  backdrop-blur-md ';
     card.innerHTML = `
    
     <button class="absolute top-[-4%]  bg-[#0085DB] rounded-lg text-white px-4 py-2 ">${item.category}</button>
