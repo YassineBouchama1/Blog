@@ -36,6 +36,13 @@ if (isset($_GET['action'])) {
         case 'delete':
             PostController::destroyAction();
             break;
+        case 'trending':
+            PostController::popularPostsAction();
+            break;
+
+            case 'ArchivedPosts':
+                PostController::archivedPostsAction();
+                break;
         default:
             echo "Page Not found 404";
             break;

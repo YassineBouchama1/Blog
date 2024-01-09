@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         let divCat = document.createElement('a')
         divCat.classList = 'flex flex-col items-center dark:text-white'
-        divCat.href = `./categories?name=${item.category_name}`
+        divCat.href = `./categories.php?name=${item.category_name}`
         divCat.innerHTML = `
         <img class="min-w-[100px] h-[100px] rounded-full" src="${IMG_BASE_URL}${item.image} ">
         <h5> ${item.category_name}</h5> `

@@ -35,6 +35,12 @@ document.addEventListener('DOMContentLoaded', async function () {
                 loader.classList.add('hidden')
             } else {
                 console.log('no posts')
+                container_list.innerHTML = `<div class="text-center absolute left-0 right-0">
+                <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">No Posts Available</h1>
+                <p class="text-gray-600 dark:text-gray-400"></p>
+              </div>`
+                loader.classList.add('hidden')
+
             }
 
 
@@ -63,9 +69,9 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         // Map through the tags array to generate button elements
         const tagButtons = tags.map(tag => `
-    <button class="inline-flex items-center justify-center font-medium border-black ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-6 rounded-full text-xs py-1 px-1">
+    <a href="./tags.php?name=${tag}"  class="inline-flex items-center justify-center font-medium border-black ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-6 rounded-full text-xs py-1 px-1">
         ${tag.trim()}
-    </button>
+    </a>
 `).join('');
 
         const relativeTime = await timeAgo(item.date_created);

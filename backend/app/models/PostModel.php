@@ -83,6 +83,65 @@ class PostModel extends BaseModel
             ->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    //get poplure posts by views
+    public static function popularPosts()
+    {
+
+
+        return static::database()->query('SELECT
+    posts.*,
+     categories.category_name AS category,
+     GROUP_CONCAT(tags.tag_name) AS tags,
+     users.username,
+     users.image AS image_author
+ FROM
+     posts
+ LEFT JOIN
+     categories ON categories.category_id = posts.category_id
+ LEFT JOIN
+     post_tags ON post_tags.post_id = posts.post_id
+ LEFT JOIN
+     tags ON tags.tag_id = post_tags.tag_id
+ LEFT JOIN 
+ users ON users.user_id = posts.user_id    
+ GROUP BY
+ posts.views DESC ,
+     posts.post_id;
+  ')
+            ->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    //get archived posts
+    public static function archivedPost()
+    {
+
+
+        return static::database()->query('SELECT
+        posts.*,
+        categories.category_name AS category,
+        GROUP_CONCAT(tags.tag_name) AS tags,
+        users.username,
+        users.image AS image_author
+    FROM
+        posts
+    LEFT JOIN
+        categories ON categories.category_id = posts.category_id
+    LEFT JOIN
+        post_tags ON post_tags.post_id = posts.post_id
+    LEFT JOIN
+        tags ON tags.tag_id = post_tags.tag_id
+    LEFT JOIN
+        users ON users.user_id = posts.user_id
+    WHERE
+        archived = 0
+    GROUP BY
+        posts.post_id;
+    
+  ')
+            ->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
     public static function find($post_id)
     {
         return static::database()->query("SELECT

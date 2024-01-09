@@ -14,7 +14,7 @@ class PostController
         self::$utility = new Utility();
     }
 
-    // Get all categories
+    // Get all posts
     public static function latestAction()
     {
         $latestCategories = PostModel::latest();
@@ -27,7 +27,31 @@ class PostController
     }
 
 
+    // Get popular Post By Views
+    public static function popularPostsAction()
+    {
+        $latestCategories = PostModel::popularPosts();
 
+        if ($latestCategories) {
+            echo json_encode($latestCategories);
+            return;
+        }
+        Utility::sendResponse("There are no categories", 404);
+    }
+
+
+
+    // Get Archived Posts
+    public static function archivedPostsAction()
+    {
+        $latestCategories = PostModel::archivedPost();
+
+        if ($latestCategories) {
+            echo json_encode($latestCategories);
+            return;
+        }
+        Utility::sendResponse("There are no categories", 404);
+    }
 
     // Get post by id
     public static function findAction()

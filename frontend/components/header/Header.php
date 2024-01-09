@@ -44,20 +44,20 @@
 
     <div class="group ">
 
-      <a class="" href="poupler.php"><i class=" ti ti-heart text-3xl cursor-pointer"></i></a>
+      <a href="popular.php"><i class=" ti ti-heart text-3xl cursor-pointer"></i></a>
 
       <div class="group-hover:flex hidden popover absolute bg-gray-700 border shadow-md mt-2 px-4 py-2 rounded-lg">
 
-        <p class="text-white ">Poupler</p>
+        <p class="text-white ">popular</p>
       </div>
     </div>
     <div class="group ">
 
-      <a class="" href="archive.php"><i class=" ti ti-archive text-3xl cursor-pointer"></i></a>
+      <a  href="archived.php"><i class=" ti ti-archive text-3xl cursor-pointer"></i></a>
 
       <div class="group-hover:flex hidden popover absolute bg-gray-700 border shadow-md mt-2 px-4 py-2 rounded-lg">
 
-        <p class="text-white ">archive</p>
+        <p class="text-white ">archived</p>
       </div>
     </div>
 
