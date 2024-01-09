@@ -35,7 +35,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   }
-  searchBtn.addEventListener('click', searchBar.classList.remove("hidden"))
+  searchBtn.addEventListener('click', function () {
+    searchBar.classList.remove("hidden")
+  })
 
 
 

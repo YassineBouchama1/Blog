@@ -3,14 +3,14 @@ const API_FILTER_URL = 'http://localhost/blog/backend/filter.php';
 
 const searchInput = document.getElementById('search_input');
 const searchBar = document.getElementById('searchBar');
-
+let closeSearch = document.getElementById('closeSearch')
 const resultSearch = document.getElementById('result_Search');
-
+let resultLength = document.getElementById('resultLength')
 
 searchInput.addEventListener('input', onLoadSearch);
 
 
-searchBar.addEventListener('click', function () {
+closeSearch.addEventListener('click', function () {
     searchBar.classList.add("hidden")
 })
 
@@ -20,6 +20,7 @@ async function onLoadSearch() {
         const routePromise = await fetch(`${API_FILTER_URL}?action=search&word=${searchInput.value}`);
         const data = await routePromise.json();
         console.log(data)
+        resultLength.textContent = data.length
         if (data.length > 0) {
 
             resultSearch.innerHTML = '';

@@ -36,9 +36,9 @@ document.addEventListener('DOMContentLoaded', async function () {
             } else {
                 console.log('no posts')
                 container_list.innerHTML = `<div class="text-center absolute left-0 right-0">
-                <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">No Posts Available</h1>
-                <p class="text-gray-600 dark:text-gray-400"></p>
-              </div>`
+        <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">No Posts Available</h1>
+        <p class="text-gray-600 dark:text-gray-400"></p>
+      </div>`
                 loader.classList.add('hidden')
 
             }
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         <p><i class="ti ti-eye"></i> <span>${item.views} Views</span></p>
   
       </div>
-      <a href="post.php?post_id=${item.post_id}" class="text-center  mb-2 text-md font-bold leading-none tracking-tight text-gray-900/80 md:text-2xl   dark:text-white   truncate">${item.title}</a>
+      <a href="post.php?post_id=${item.post_id}" class="text-center  mb-2 text-md font-bold leading-none tracking-tight text-gray-900/80 md:text-xl  dark:text-white ">${item.title}</a>
   
   
       <div class="flex flex-wrap gap-2 mt-2">
