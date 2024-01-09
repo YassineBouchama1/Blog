@@ -1,8 +1,7 @@
 <main id="container_list" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
 
 
-
-  <article class="animate-pulse relative flex flex-col jusitfy-between gap-4 items-center min-h-[250px] h-auto  w-full bg-[#e5e5e5] dark:bg-[#252936] dark:text-white text-black transition-shadow rounded-[18px] shadow-md  backdrop-blur-md  ">
+  <article class="relative flex flex-col  m-8 rounded-[18px] shadow-md  min-h-[270px] h-auto  w-full animate-pulse" <article class="animate-pulse relative flex flex-col jusitfy-between gap-4 items-center min-h-[250px] h-auto  w-full bg-[#e5e5e5] dark:bg-[#252936] dark:text-white text-black transition-shadow rounded-[18px] shadow-md  backdrop-blur-md  ">
 
     <button class="absolute top-[-4%]  bg-[#0085DB] rounded-lg text-white px-4 py-2 ">Loading...</button>
     <div class="">

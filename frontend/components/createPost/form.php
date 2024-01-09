@@ -16,27 +16,25 @@
                         <div class="mt-2">
                             <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
 
-                                <input type="text" name="title" id="title" class="block flex-1 border-0 bg-transparent py-1.5 px-2 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="janesmith">
+                                <input type="text" name="title" id="title" class="block flex-1 border-0 bg-transparent py-1.5 px-2 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Title...">
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-span-full">
+                    <div class="col-span-full ">
                         <label for="about" class="block text-sm font-medium leading-6 text-gray-900  dark:text-white ">Content<span class="text-red-500">*</span></label>
-                        <button id="chatgpt" type="button"> Generate Text</button>
 
                         <div id="containerContent" class="mt-2 relative">
-                            <textarea id="content" name="content" rows="6" class=" bg-transparent block w-full rounded-md border-0 py-1.5 w-full text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-
-
-                            </textarea>
-                            <p id='think' class="absolute top-0  bottom-0 left-0 right-0 bg-blue-500/50 text-gray-700 rounded-lg py-2 px-4 flex justify-start items-center gap-x-1">Thinking
+                            <textarea id="content" name="content" rows="6" class="p-6 bg-transparent block w-full rounded-md border-0  w-full text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                            <p id='bot_creating' class="hidden absolute top-0  bottom-0 left-0 right-0 bg-blue-500/50 text-gray-700 rounded-lg py-2 px-4 flex justify-start items-center gap-x-1">Thinking
 
                                 <span class='h-1.5 w-1.5 bg-gray-300 rounded-full animate-bounce [animation-delay:-0.1s]'></span>
                                 <span class='h-1.5 w-1.5 bg-gray-300 rounded-full animate-bounce [animation-delay:-0.15s]'></span>
                                 <span class='h-1.5 w-1.5 bg-gray-300 rounded-full animate-bounce'></span>
 
                             </p>
+                            <?php require('components\createPost\bot.php') ?>
+
                         </div>
                     </div>
                     <div class="sm:col-span-4">

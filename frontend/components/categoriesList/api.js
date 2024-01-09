@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         divCat.classList = 'flex flex-col items-center dark:text-white'
         divCat.href = `./categories?name=${item.category_name}`
         divCat.innerHTML = `
-        <img class="w-[100px] h-[100px] rounded-full" src="${IMG_BASE_URL}${item.image} ">
+        <img class="min-w-[100px] h-[100px] rounded-full" src="${IMG_BASE_URL}${item.image} ">
         <h5> ${item.category_name}</h5> `
 
         category_list.append(divCat)

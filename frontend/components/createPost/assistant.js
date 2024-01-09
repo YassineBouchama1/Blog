@@ -1,5 +1,8 @@
 
 let chatgptBtn = document.getElementById('chatgpt')
+let bot_creating_msg = document.getElementById('bot_creating')
+let contentForBot = document.getElementById('content')
+
 chatgptBtn.addEventListener('click', respondToUser)
 
 
@@ -20,10 +23,9 @@ async function respondToUser() {
 
     const prompt = `i will give you a prompt to generate artical  from text i will end to you the text is
 
-                 The Text is : how to learn typscript.
+                 The Text is : ${title.value}.
                  
                  Please only return the artical ,
-                 Please artical length should be min 20 word and max 30 word
 `
     const requestOptions = {
         method: 'POST',
@@ -44,7 +46,7 @@ async function respondToUser() {
     fetch(API_URL, requestOptions)
         .then(res => res.json())
         .then(data => {
-
+            console.log(data)
             //remove msg thinging
             //display msg bot
             addBotThinking(false, data.choices[0].message.content);
@@ -62,24 +64,20 @@ async function respondToUser() {
 
 
 
+
+
     //create msg that bot thinking
     function addBotThinking(reponded, text = '') {
         if (reponded) {
 
-            const messageElement = document.createElement("div");
-            messageElement.classList.add("mb-2");
-            messageElement.innerHTML = `<p id='think' class="absolute top-2 left-2  text-gray-700 rounded-lg py-2 px-4 flex justify-start items-center gap-x-1">Thinking
-         <div class="flex items-center">
-         <span class='h-1.5 w-1.5 bg-gray-300 rounded-full animate-bounce [animation-delay:-0.1s]'></span>
-         <span class='h-1.5 w-1.5 bg-gray-300 rounded-full animate-bounce [animation-delay:-0.15s]'></span>
-         <span class='h-1.5 w-1.5 bg-gray-300 rounded-full animate-bounce'></span>
-         </div>
-        </p>`;
-            content.appendChild(messageElement);
+            bot_creating_msg.classList.remove('hidden')
+
 
         } else {
             // content.innerHTML = ''
-            content.innerHTML = text
+            bot_creating_msg.classList.add('hidden')
+            content.textContent = text
+            content.value = text
         }
     }
 

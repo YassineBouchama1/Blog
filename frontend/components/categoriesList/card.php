@@ -12,7 +12,7 @@
     }
 </style>
 
-<section id="category_list" class="relative w-full flex justify-center gap-4 mb-24 overflow-x-auto scrollbar-hide  ">
+<section id="category_list" class="relative border-x-2 dark:border-[#252936]  w-full flex justify-center gap-4 mb-24 overflow-x-auto scrollbar-hide  ">
 
     loading...
 

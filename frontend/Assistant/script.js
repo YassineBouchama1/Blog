@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // chatbot logic
         const API_URL = 'https://api.openai.com/v1/chat/completions';
         // change key with you'rs
-        const API_KEY = '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';
+        const API_KEY = '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';
 
 
         //display msg thinging
