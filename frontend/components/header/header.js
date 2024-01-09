@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let logoutBtn = document.getElementById('logout')
   let createBtn = document.getElementById('createBtn')
-
+  let searchBtn = document.getElementById('searchBtn')
 
   let btnProtected = Array.from(document.querySelectorAll('.isAuthor'));
   let profileLink = document.getElementById('profileLink');
@@ -35,6 +35,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   }
+  searchBtn.addEventListener('click', searchBar.classList.remove("hidden"))
+
 
 
   logoutBtn.addEventListener('click', function () {

@@ -4,25 +4,26 @@ const IMG_BASE_URL = 'http://localhost/blog/backend/';
 
 document.addEventListener('DOMContentLoaded', async function () {
 
+  let tag_Title = document.getElementById('tag_Title')
 
   let loader = document.getElementById('loader')
   let user_id = localStorage.getItem('user_id') ? localStorage.getItem('user_id') : ''
-  let tag_Title = document.getElementById('tag_Title')
+
 
   const searchParams = new URLSearchParams(window.location.search);
   let container_list = document.getElementById('container_list')
 
 
   onLoadBuild()
+  console.log(tag_Title)
 
-  tag_Title.textContent = searchParams.get('name')
   loader.classList.remove('hidden')
 
 
   //this function bring data from server and send it to
   // function <builder> to create
   async function onLoadBuild() {
-
+    tag_Title.textContent = searchParams.get('name')
 
     try {
       const routePromise = await fetch(`${API_BASE_URL}?action=byTag&tag=${searchParams.get('name')}`);

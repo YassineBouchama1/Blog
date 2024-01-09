@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         <p><i class="ti ti-eye"></i> <span>${item.views} Views</span></p>
   
       </div>
-      <a href="post.php?post_id=${item.post_id}" class="text-center  mb-2 text-md font-bold leading-none tracking-tight text-gray-900/80 md:text-2xl   dark:text-white   ">${item.title}</a>
+      <a href="post.php?post_id=${item.post_id}" class="text-center  mb-2 text-md font-bold leading-none tracking-tight text-gray-900/80 md:text-2xl   dark:text-white   truncate">${item.title}</a>
   
   
       <div class="flex flex-wrap gap-2 mt-2">

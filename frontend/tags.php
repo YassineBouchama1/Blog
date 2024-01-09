@@ -31,7 +31,7 @@
         <!--  start page content  -->
         <div class="rounded-[18px] h-full mt-6 ">
 
-            <h2 class="font-extrabold dark:text-white mb-20 text-4xl  text-2xl md:text-4xl text-center" id="tag_Title">Loading...</h2>
+            <h2 id="tag_Title" class="font-extrabold dark:text-white mb-20 text-4xl  text-2xl md:text-4xl text-center">Loading...</h2>
 
 
             <?php require('components/popular/card.php') ?>

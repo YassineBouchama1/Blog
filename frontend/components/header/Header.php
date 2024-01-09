@@ -32,9 +32,9 @@
       </div>
     </div>
 
-    <div class="group ">
+    <div class="group  ">
 
-      <a href="categories.php"><i class="ti ti-search text-3xl cursor-pointer"></i></a>
+      <button id="searchBtn" href="categories.php"><i class="ti ti-search text-3xl cursor-pointer"></i></button>
 
       <div class="group-hover:flex hidden popover absolute bg-gray-700 border shadow-md mt-2 px-4 py-2 rounded-lg">
 
