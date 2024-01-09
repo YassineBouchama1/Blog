@@ -109,7 +109,7 @@ async function onBtnFormClick() {
         image.length = 0
         //   window.location.replace
         successfully_msg.textContent = "Post Created"
-        
+
         //scrolll to the top page after post created
         window.scrollTo(0, 0);
 

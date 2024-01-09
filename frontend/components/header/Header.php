@@ -31,13 +31,14 @@
         <p class="text-white ">Home</p>
       </div>
     </div>
+
     <div class="group ">
 
-      <a href="categories.php"><i class="ti ti-category text-3xl cursor-pointer"></i></a>
+      <a href="categories.php"><i class="ti ti-search text-3xl cursor-pointer"></i></a>
 
       <div class="group-hover:flex hidden popover absolute bg-gray-700 border shadow-md mt-2 px-4 py-2 rounded-lg">
 
-        <p class="text-white ">Categories</p>
+        <p class="text-white ">Search</p>
       </div>
     </div>
 
@@ -62,7 +63,7 @@
 
     <div class="group ">
 
-      <a href="./auth/login.php" id="profileLink" class="isAutor">
+      <a href="./auth/login.php" id="profileLink">
         <i class="ti ti-user text-3xl cursor-pointer"></i>
       </a>
 
@@ -72,8 +73,8 @@
       </div>
     </div>
 
-    <div class="group ">
-      <button id="logout" class="isAutor">
+    <div class="isAuthor group">
+      <button id="logout">
         <i class="ti ti-logout  text-3xl cursor-pointer"></i>
       </button>
       <div class="group-hover:flex hidden popover absolute bg-gray-700 border shadow-md mt-2 px-4 py-2 rounded-lg">
@@ -84,8 +85,8 @@
 
 
 
-    <div id="createBtn" class="group ">
-      <a href="./create.php" id="createPost" class="isAutor">
+    <div id="createBtn" class="isAuthor group">
+      <a href="./create.php" id="createPost">
         <i class="ti ti-plus text-[#0085DB] text-3xl cursor-pointer"></i>
       </a>
       <div class="group-hover:flex hidden popover absolute bg-gray-700 border shadow-md mt-2 px-4 py-2 rounded-lg">

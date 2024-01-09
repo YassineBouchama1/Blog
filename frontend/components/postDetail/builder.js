@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
       console.log(data)
       container_list.innerHTML = '';
       builder(container_list, data)
-      setInterval(() => loader.classList.add('hidden'), 2000)
+      setInterval(() => loader.classList.add('hidden'), 1000)
     } catch (error) {
       console.error("Error fetching compines:", error);
     }

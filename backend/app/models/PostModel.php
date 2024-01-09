@@ -228,8 +228,8 @@ class PostModel extends BaseModel
 
 
     public static function searchPosts($tag, $category, $title, $content)
-{
-    $query = "SELECT
+    {
+        $query = "SELECT
         posts.*,
         categories.category_name AS category,
         GROUP_CONCAT(tags.tag_name) AS tags,
@@ -247,26 +247,26 @@ class PostModel extends BaseModel
         users ON users.user_id = posts.user_id
     WHERE 1";
 
-    if (!empty($tag)) {
-        $query .= " AND tags.tag_name = '$tag'";
+        if (!empty($tag)) {
+            $query .= " AND tags.tag_name = '$tag'";
+        }
+
+        if (!empty($category)) {
+            $query .= " AND categories.category_name = '$category'";
+        }
+
+        if (!empty($title)) {
+            $query .= " AND posts.title LIKE '%$title%'";
+        }
+
+        if (!empty($content)) {
+            $query .= " AND posts.content LIKE '%$content%'";
+        }
+
+        $query .= " GROUP BY posts.post_id";
+
+        return static::database()->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
-
-    if (!empty($category)) {
-        $query .= " AND categories.category_name = '$category'";
-    }
-
-    if (!empty($title)) {
-        $query .= " AND posts.title LIKE '%$title%'";
-    }
-
-    if (!empty($content)) {
-        $query .= " AND posts.content LIKE '%$content%'";
-    }
-
-    $query .= " GROUP BY posts.post_id";
-
-    return static::database()->query($query)->fetchAll(PDO::FETCH_ASSOC);
-}
 
 
 

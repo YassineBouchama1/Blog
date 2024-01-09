@@ -18,18 +18,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   let logoutBtn = document.getElementById('logout')
-  let createBtn = document.getElementById('logout')
-  // let profileLink = document.getElementById('profileLink');
+  let createBtn = document.getElementById('createBtn')
 
+
+  let btnProtected = Array.from(document.querySelectorAll('.isAuthor'));
+  let profileLink = document.getElementById('profileLink');
+  console.log(btnProtected[0])
   if (localStorage.getItem('role') === 'author') {
-    logoutBtn.classList.remove('hidden')
-    createBtn.classList.remove('hidden')
-    // profileLink.classList.remove('hidden')
+    btnProtected.map((btn) => btn.classList.remove('hidden'))
+
+
     profileLink.href = `profile.php?action=userPosts&user_id=${localStorage.getItem('user_id')}`;
   }
   else {
-    logoutBtn.classList.add('hidden')
-    // profileLink.classList.add('hidden')
+    btnProtected.map((btn) => btn.classList.add('hidden'))
+
 
   }
 

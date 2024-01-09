@@ -45,7 +45,9 @@
 
 
     </div>
-    <?php require('components/footer/footer.php') ?>
+
+    <?php require('components\searchBar\search.php') ?>
+    <!-- <?php require('components/footer/footer.php') ?> -->
     <script src="theme.js"></script>
 </body>
 

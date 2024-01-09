@@ -7,6 +7,7 @@
         const searchParamsChecker = new URLSearchParams(window.location.search);
 
         if (!searchParamsChecker.has('user_id')) {
+
             window.location.href = './'
         }
     </script>

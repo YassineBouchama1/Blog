@@ -60,6 +60,6 @@
     </div>
 
 </section>
-
+<?php require('components\loader.php') ?>
 <script src="lib\timeAgo.js"></script>
 <script src="components\profile\profile.js"></script>
