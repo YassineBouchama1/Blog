@@ -40,6 +40,8 @@
     <button id="logout" class="isAutor"> <i class="ti ti-logout  text-3xl cursor-pointer"></i></button>
 
 
+    <a href="./create.php" id="createPost" class="isAutor"> <i class="ti ti-plus text-[#0085DB] text-3xl cursor-pointer"></i></a>
+
     <!-- switcher drk mode -->
     <div>
 

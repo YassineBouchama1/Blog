@@ -1,8 +1,9 @@
 const API_BASE_URL = 'http://localhost/blog/backend/post.php';
-const IMG_BASE_URL = 'http://localhost/blog/backend/';
+// const IMG_BASE_URL = 'http://localhost/blog/backend/';
 
 
 document.addEventListener('DOMContentLoaded', onLoadBuild)
+
 
 
 
@@ -14,18 +15,20 @@ let container_list = document.getElementById('container_list')
 
 
 
-
 //this function bring data from server and send it to
 // function <builder> to create
 async function onLoadBuild() {
+ 
+
     try {
         const routePromise = await fetch(API_BASE_URL);
         const data = await routePromise.json();
 
 
-        console.log(data)
+
         container_list.innerHTML = '';
-        data.forEach(item => builder(container_list, item));
+        await data.forEach(item => builder(container_list, item));
+     
 
     } catch (error) {
         console.error("Error fetching compines:", error);

@@ -1,14 +1,14 @@
 const API_BASE_URL = 'http://localhost/blog/backend/post.php';
 const IMG_BASE_URL = 'http://localhost/blog/backend/';
 
-
 document.addEventListener('DOMContentLoaded', function () {
+  let loader = document.getElementById('loader')
 
 
   const searchParams = new URLSearchParams(window.location.search);
 
   console.log(searchParams.get('post_id'))
-
+  loader.classList.remove('hidden')
 
 
 
@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
       console.log(data)
       container_list.innerHTML = '';
       builder(container_list, data)
+      setInterval(() => loader.classList.add('hidden'), 2000)
     } catch (error) {
       console.error("Error fetching compines:", error);
     }
@@ -44,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
       console.log(data)
+      setInterval(() => loader.classList.add('hidden'), 2000)
 
 
     } catch (error) {

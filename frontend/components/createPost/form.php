@@ -51,20 +51,15 @@
 
                     </div>
 
-                    <div class=" col-span-full">
-                        <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900  dark:text-white">Cover photo<span class="text-red-500">*</span></label>
-                        <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
 
 
-            <div class="mt-6 flex items-center justify-end gap-x-6">
-                <a href="./profile.php" type="button" class="text-sm font-semibold leading-6 text-gray-900  dark:text-white">Cancel</a>
-                <button type="button" id="btnCreate" class="rounded-md bg-[#0085DB] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#0269AE] ">Create</button>
-            </div>
+            <div class=" mt-6 flex items-center justify-end gap-x-6">
+                        <a href="./profile.php" type="button" class="text-sm font-semibold leading-6 text-gray-900  dark:text-white">Cancel</a>
+                        <button type="button" id="btnCreate" class="rounded-md bg-[#0085DB] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#0269AE] ">Create</button>
+                    </div>
     </form>
 
 

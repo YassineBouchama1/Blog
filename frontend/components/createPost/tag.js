@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', async function() {
+document.addEventListener('DOMContentLoaded', async function () {
 
     let list_tags_select = document.getElementById('list_tags_select')
     let selected_tags = document.getElementById('selected_tags')
@@ -48,14 +48,14 @@ document.addEventListener('DOMContentLoaded', async function() {
     function buildTag(tag) {
         let buttonDiv = document.createElement('button');
 
-        buttonDiv.classList = "cursor-pointer w-full border-gray-100 rounded-t border-b hover:bg-blue-100";
-        buttonDiv.onclick = function(event) {
+        buttonDiv.classList = "bg-transparent cursor-pointer w-full border-gray-100 rounded-t border-b hover:bg-blue-100";
+        buttonDiv.onclick = function (event) {
             event.preventDefault();
             selectTags(tag);
         };
 
         buttonDiv.innerHTML = `
-    <div class="flex w-full items-center p-2 pl-2  border-transparent border-l-2 relative hover:border-teal-100">
+    <div class="bg-transparent flex w-full items-center p-2 pl-2  border-transparent border-l-2 relative hover:border-teal-100">
     <div class="mx-2 leading-6">${tag}</div>
    
     </div>
@@ -77,14 +77,14 @@ document.addEventListener('DOMContentLoaded', async function() {
         console.log('buildselected')
         let buttonTagSelected = document.createElement('button')
 
-        buttonTagSelected.classList = "bg-white flex justify-center items-center m-1 font-medium py-1 px-2  rounded-full text-[#0274C0] bg-[#0085DB] border border-[#0085DB] "
-        buttonTagSelected.onclick = function(event) {
+        buttonTagSelected.classList = "bg-transparent flex justify-center items-center m-1 font-medium py-1 px-2  rounded-full text-[#0274C0]  border border-[#0085DB] "
+        buttonTagSelected.onclick = function (event) {
             event.preventDefault();
             unSelectTags(tag);
         };
         buttonTagSelected.innerHTML = `
     
-    <div class="text-xs font-normal leading-none max-w-full flex-initial">${tag}</div>
+    <div class="bg-transparent text-xs font-normal leading-none max-w-full flex-initial">${tag}</div>
    
     `
 

@@ -13,7 +13,10 @@ if (isset($_GET['action'])) {
             PostController::latestAction();
             break;
         case 'find':
-            PostController::findPostAction();
+            PostController::findAction();
+            break;
+        case 'PostsByUser':
+            PostController::findByUserAction();
             break;
 
         case 'create':

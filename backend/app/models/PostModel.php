@@ -107,6 +107,31 @@ class PostModel extends BaseModel
     }
 
 
+    //bring alll dposts for user id
+    public static function findPostsByUser($user_id)
+    {
+        return static::database()->query("SELECT
+            posts.*,
+            categories.category_name AS category,
+            GROUP_CONCAT(tags.tag_name) AS tags,
+            users.username,
+            users.image AS image_author
+        FROM
+            posts
+        LEFT JOIN
+            categories ON categories.category_id = posts.category_id
+        LEFT JOIN
+            post_tags ON post_tags.post_id = posts.post_id
+        LEFT JOIN
+            tags ON tags.tag_id = post_tags.tag_id
+        LEFT JOIN 
+            users ON users.user_id = posts.user_id
+        WHERE posts.user_id = $user_id
+        GROUP BY posts.post_id") // Added GROUP BY to avoid duplicates if a post has multiple tags
+            ->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
 
     public function create($tags)
     {
@@ -171,6 +196,77 @@ class PostModel extends BaseModel
             return $this->handleTags($this->post_id, $tags);
         }
     }
+
+
+
+
+    // all posts under tag
+    //bring alll dposts for user id
+    public static function findPostsByTag($tag)
+    {
+        return static::database()->query("SELECT
+            posts.*,
+            categories.category_name AS category,
+            GROUP_CONCAT(tags.tag_name) AS tags,
+            users.username,
+            users.image AS image_author
+        FROM
+            posts
+        LEFT JOIN
+            categories ON categories.category_id = posts.category_id
+        LEFT JOIN
+            post_tags ON post_tags.post_id = posts.post_id
+        LEFT JOIN
+            tags ON tags.tag_id = post_tags.tag_id
+        LEFT JOIN 
+            users ON users.user_id = posts.user_id
+        WHERE tags.tag_name = '$tag' 
+        GROUP BY posts.post_id")
+            ->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
+
+    public static function searchPosts($tag, $category, $title, $content)
+{
+    $query = "SELECT
+        posts.*,
+        categories.category_name AS category,
+        GROUP_CONCAT(tags.tag_name) AS tags,
+        users.username,
+        users.image AS image_author
+    FROM
+        posts
+    LEFT JOIN
+        categories ON categories.category_id = posts.category_id
+    LEFT JOIN
+        post_tags ON post_tags.post_id = posts.post_id
+    LEFT JOIN
+        tags ON tags.tag_id = post_tags.tag_id
+    LEFT JOIN 
+        users ON users.user_id = posts.user_id
+    WHERE 1";
+
+    if (!empty($tag)) {
+        $query .= " AND tags.tag_name = '$tag'";
+    }
+
+    if (!empty($category)) {
+        $query .= " AND categories.category_name = '$category'";
+    }
+
+    if (!empty($title)) {
+        $query .= " AND posts.title LIKE '%$title%'";
+    }
+
+    if (!empty($content)) {
+        $query .= " AND posts.content LIKE '%$content%'";
+    }
+
+    $query .= " GROUP BY posts.post_id";
+
+    return static::database()->query($query)->fetchAll(PDO::FETCH_ASSOC);
+}
 
 
 

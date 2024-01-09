@@ -13,6 +13,9 @@ let image_profile = document.getElementById('image_profile')
 let name_profile = document.getElementById('name_profile')
 let length_posts = document.getElementById('length_posts')
 let email_profile = document.getElementById('email_profile')
+let created_at = document.getElementById('created_at')
+
+
 
 // bring querys 
 const searchParams = new URLSearchParams(window.location.search);
@@ -21,6 +24,9 @@ const searchParams = new URLSearchParams(window.location.search);
 
 console.log(user_id)
 
+
+
+//fetch all data user
 async function onLoadBuilduser() {
   try {
     const routePromise = await fetch(`${API_BASE_URL}?action=find&user_id=${searchParams.get('user_id')}`);
@@ -42,7 +48,7 @@ async function onLoadBuilduser() {
 // function <builder> to create
 async function onLoadBuildPosts() {
   try {
-    const routePromise = await fetch(`${API_BASE_URL}?action=userPosts&user_id=${searchParams.get('user_id')}`);
+    const routePromise = await fetch(`${POST_BASE_URL}?action=PostsByUser&user_id=${searchParams.get('user_id')}`);
     const data = await routePromise.json();
 
 
@@ -50,6 +56,7 @@ async function onLoadBuildPosts() {
     container_list.innerHTML = '';
     length_posts.value = data.length
     length_posts.textContent = data.length
+
     data.forEach(item => builder(container_list, item));
 
   } catch (error) {
@@ -60,8 +67,10 @@ async function onLoadBuildPosts() {
 
 
 
-
+// this get data from api and build information about user
 async function profileBuilder(dataProfile) {
+  const relativeTime = await timeAgo(dataProfile.date_created);
+  created_at.textContent = relativeTime
   image_profile.src = `${IMG_BASE_URL}${dataProfile.image}`
   name_profile.value = dataProfile.username
   name_profile.textContent = dataProfile.username

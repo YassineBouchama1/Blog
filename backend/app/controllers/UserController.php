@@ -57,13 +57,13 @@ class UserController
     {
         //Reception data from query id
         extract($_GET);
-        $user = UserModel::findWithPosts($user_id);
+        $posts = UserModel::findWithPosts($user_id);
 
 
         // check if  there is a user
-        if ($user) {
+        if ($posts) {
 
-            echo json_encode($user); //array
+            echo json_encode($posts); //array
             return;
         }
         Utility::sendResponse("there is no user under this $user_id", 404);

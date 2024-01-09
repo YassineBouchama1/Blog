@@ -2,6 +2,7 @@
 
 
 let loader = document.getElementById('loader')
+
 const btnCreate = document.getElementById('btnCreate');
 let image = document.getElementById('image');
 let displatImg = document.getElementById('displatImg');

@@ -28,8 +28,9 @@ class PostController
 
 
 
+
     // Get post by id
-    public static function findPostAction()
+    public static function findAction()
     {
 
         extract($_GET);
@@ -44,6 +45,43 @@ class PostController
         }
         Utility::sendResponse("There is no post under this $post_id", 404);
     }
+
+    // Get post by id
+    public static function findByUserAction()
+    {
+
+        extract($_GET);
+        //1- Check if user_id sent
+        if (!$user_id) return Utility::sendResponse("User_id is Required", 404);
+        $postsUser = PostModel::findPostsByUser($user_id);
+
+        // Check if there is a posts
+        if ($postsUser) {
+            echo json_encode($postsUser);
+            return;
+        }
+        Utility::sendResponse("There is no post under this $user_id", 404);
+    }
+
+
+
+    // Get post by id
+    public static function findByTagAction()
+    {
+
+        extract($_GET);
+        //1- Check if user_id sent
+        if (!$tag) return Utility::sendResponse("tag is Required", 404);
+        $posts = PostModel::findPostsByTag($tag);
+
+        // Check if there is a posts
+        if ($posts) {
+            echo json_encode($posts);
+            return;
+        }
+        Utility::sendResponse("There is no post under this $tag", 404);
+    }
+
 
 
 

@@ -18,6 +18,8 @@
                                 22
                             </span>
                             <span class="text-sm text-blueGray-400 dark:text-white">Posts</span>
+
+
                         </div>
 
                     </div>
@@ -31,6 +33,11 @@
                         <span id="email_profile"> Yassine@gmail.com
                         </span>
                     </div>
+                    <div class="dark:text-white/80 text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
+                        <p><i class="ti ti-clock-hour-5"></i> <span id="created_at">00</span></p>
+
+                    </div>
+
 
                 </div>
                 <div class="mt-10 py-10 border-t border-blueGray-200 text-center">

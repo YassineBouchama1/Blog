@@ -86,6 +86,7 @@ class UserModel extends BaseModel
         LEFT JOIN 
      users ON users.user_id = posts.user_id    
         WHERE posts.user_id = $userID
+        
     ")
             ->fetchAll(PDO::FETCH_ASSOC);
     }
