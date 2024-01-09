@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
@@ -30,7 +30,7 @@
 
         <!--  start page content  -->
         <div class="rounded-[18px] h-full mt-6 ">
-            <!-- <?php require('components/categoriesList/card.php') ?> -->
+            <?php require('components/categoriesList/card.php') ?>
 
             <?php require('components/posts/card.php') ?>
 

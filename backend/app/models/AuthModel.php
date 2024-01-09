@@ -60,6 +60,8 @@ class AuthModel extends BaseModel
     {
 
 
+
+
         // hashing password
         $hashedPassword = password_hash($this->password, PASSWORD_BCRYPT);
 
@@ -86,6 +88,8 @@ class AuthModel extends BaseModel
 
         $user = $sqlState->fetch(PDO::FETCH_ASSOC);
 
+
+
         // Check if a suser exists
         if ($user && password_verify($this->password, $user['password'])) {
 
@@ -94,5 +98,13 @@ class AuthModel extends BaseModel
 
             return false;
         }
+    }
+
+
+    // get user id by  id
+    public static function find($email)
+    {
+        return static::database()->query("SELECT * FROM users WHERE email =  $email")
+            ->fetch(PDO::FETCH_ASSOC);
     }
 }

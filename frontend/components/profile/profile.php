@@ -14,7 +14,7 @@
                         <div class="flex justify-center py-4 flex-col items-center pt-8 ">
 
                             <span id="length_posts" class="text-xl font-bold block uppercase tracking-wide text-blueGray-600 dark:text-white/80  ">
-                                22
+                                0
                             </span>
                             <span class="text-sm text-blueGray-400 dark:text-white">Posts</span>
 

@@ -93,7 +93,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
             //   window.location.replace
             if (response.status === 500) {
-                error_msg.textContent = 'Failed to Create Account'
+                error_msg.textContent = response.message
+                return;
+            }
+            if (response.status === 404) {
+                error_msg.textContent = response.message
                 return;
             }
 
@@ -107,6 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
         } catch (error) {
             console.log(error);
             loader.classList.add('hidden')
+            error_msg.textContent = 'Problem on Server'
         }
 
 

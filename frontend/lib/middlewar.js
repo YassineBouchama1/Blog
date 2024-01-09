@@ -1,4 +1,4 @@
-// if (localStorage.getItem('role') !== 'author') {
-//     window.location.href = `../`
+if (localStorage.getItem('role') !== 'author') {
+    window.location.href = `../`
 
-// }
+}

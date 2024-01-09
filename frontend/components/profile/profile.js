@@ -53,11 +53,16 @@ async function onLoadBuildPosts() {
 
 
     console.log(data)
-    container_list.innerHTML = '';
-    length_posts.value = data.length
-    length_posts.textContent = data.length
 
-    data.forEach(item => builder(container_list, item));
+
+    if (data.length >= 0) {
+      container_list.innerHTML = '';
+      length_posts.value = data.length
+      length_posts.textContent = data.length
+      data.forEach(item => builder(container_list, item));
+    } else {
+      console.log('no posts')
+    }
 
   } catch (error) {
     console.error("Error fetching compines:", error);
@@ -96,8 +101,8 @@ async function builder(container_list, item) {
 
   // Map through the tags array to generate button elements
   const tagButtons = tags.map(tag => `
-    <button class="inline-flex items-center justify-center font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background  h-8 rounded-full text-xs py-1 px-1">
-        ${tag.trim()}
+  <button class="inline-flex items-center justify-center font-medium border-black ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-6 rounded-full text-xs py-1 px-1">
+  ${tag.trim()}
     </button>
 `).join('');
   console.log(tags)
@@ -111,7 +116,7 @@ async function builder(container_list, item) {
 
 
   console.log(isOwner)
-  card.classList = 'relative flex flex-col jusitfy-between gap-4 items-center min-h-[250px] h-auto  w-full bg-[#e5e5e5] dark:bg-[#252936] dark:text-white text-black transition-shadow rounded-[18px] shadow-md  backdrop-blur-md  ';
+  card.classList = 'relative flex flex-col jusitfy-between gap-4 items-center min-h-[250px] h-auto  w-full bg-[#e5e5e5] dark:bg-[#252936] dark:text-white text-black  rounded-[18px]   backdrop-blur-md  ';
   card.innerHTML = `
   <button class="absolute top-[-4%]  bg-[#0085DB] rounded-lg text-white px-4 py-2 ">${item.category}</button>
   <div class="">
@@ -124,8 +129,7 @@ async function builder(container_list, item) {
       <p><i class="ti ti-eye"></i> <span>${item.views} Views</span></p>
 
     </div>
-    <a href="post.php?post_id=${item.post_id}" class="text-center  mb-2 text-md font-bold leading-none tracking-tight text-gray-900 md:text-2xl   dark:text-white   ">Title Post</a>
-    <p class="max-w-xs break-words text-center overflow-ellipsis">${item.content.slice(0, 20)}... </p>
+    <a href="post.php?post_id=${item.post_id}" class="text-center  mb-2 text-md font-bold leading-none tracking-tight text-gray-900 md:text-2xl   dark:text-white   ">${item.title}</a>
 
 
     <div class="flex flex-wrap gap-2 mt-2">
@@ -143,7 +147,7 @@ async function builder(container_list, item) {
     <div class="flex gap-x-4 items-center">
 
       <a href="edit.php?post_id=${item.post_id}"><i class="ti ti-edit text-green-500"></i></a>
-      <button><i class="ti ti-trash text-red-500"></i> </button>
+      <button onclick="onDeletePost(${item.post_id})"><i class="ti ti-trash text-red-500"></i> </button>
     </div>
 
   </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
@@ -13,36 +13,39 @@
 
 </head>
 
-<body class=" flex  flex-col w-[100%] p-5 m-0 text-[#111C2D] bg-[#f0f5f9] dark:bg-slate-800 text-base font-normal leading-5 font-sans">
-    <!-- Header Start -->
+<body class=" text-[#111C2D] bg-white dark:bg-[#1f1d2b]  duration-300 ease-in-out text-base font-normal leading-5 font-sans">
+    <div id="container" class="flex  flex-col w-[100%] p-5 m-0 mb-10"> <!-- Header Start -->
 
-    <?php require('components/header/Header.php') ?>
+        <?php require('components/header/Header.php') ?>
 
-    <!-- Header Start -->
-
-
+        <!-- Header Start -->
 
 
 
 
-    <!--  start page content  -->
-    <div class="rounded-[18px] h-full mt-6 ">
 
 
-        <?php require('components/posts/card.php') ?>
+        <!--  start page content  -->
+        <div class="rounded-[18px] h-full mt-6 ">
+
+
+            <?php require('components/posts/card.php') ?>
 
 
 
 
+
+        </div>
+        <!--  end page content  -->
+
+
+
+
+        <!-- <?php require('components\loader.php') ?> -->
+        <script src="theme.js"></script>
 
     </div>
-    <!--  end page content  -->
-
-
-
-
-    <!-- <?php require('components\loader.php') ?> -->
-    <script src="theme.js"></script>
+    <?php require('components/footer/footer.php') ?>
 
 </body>
 

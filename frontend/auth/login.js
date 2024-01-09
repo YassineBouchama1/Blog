@@ -71,14 +71,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
             //   window.location.replace
 
+            // if (response.user)
             localStorage.setItem('user_id', response.user.user_id)
-            localStorage.setItem('role', 'author')
+            localStorage.setItem('role', response.user.role)
             console.log(response.user.user_id)
 
             setInterval(() => {
                 window.location.href = '../'
                 loader.classList.add('hidden')
-            }, 10000)
+            }, 1000)
 
             successfully_msg.textContent = "Loging Successfully"
         } catch (error) {
