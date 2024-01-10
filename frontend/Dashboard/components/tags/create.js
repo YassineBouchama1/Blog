@@ -22,7 +22,7 @@ async function onBtnFormClick() {
     if (name.value.trim() === '') {
         return error_msg.textContent = 'name is Required'
     }
-    if (idTag === null) {
+    if (idTag === null && btnForm.textContent === 'update') {
         return error_msg.textContent = 'id is required'
     }
 
@@ -51,10 +51,21 @@ async function onBtnFormClick() {
 
             let response = await routePromise.json();
             console.log(response);
+            // validate response from api
+            if (response.status === 402) {
+                error_msg.textContent = 'Tag name Already Exist'
+                return;
+            }
+
+
+            if (response.status === 500) {
+                error_msg.textContent = 'iFailed to create Tag'
+                return;
+            }
             name.value = ''
 
             onLoadBuild();
-
+            onToggle()
             console.log('created')
         } catch (error) {
             console.error(error);
@@ -75,8 +86,19 @@ async function onBtnFormClick() {
 
             let response = await routePromise.json();
             console.log(response);
-            name.value = ''
 
+            // validate response from api
+            if (response.status === 402) {
+                error_msg.textContent = 'Tag name Already Exist'
+                return;
+            }
+
+
+            if (response.status === 500) {
+                error_msg.textContent = 'iFailed to create Tag'
+                return;
+            }
+            name.value = ''
             onToggle()
             onLoadBuild();
 

@@ -52,9 +52,9 @@ function builder(container_list, item) {
 //this function to display data category for update it
 async function onBtnUpdate(id) {
 
-    console.log(btnForm.textContent)
+    console.log(btnFormCat.textContent)
     onToggle()
-    btnForm.textContent = 'update'
+    btnFormCat.textContent = 'update'
     idCategory = id
     try {
         let routePromise = await fetch(`${API_BASE_URL}?action=find&category_id=${id}`);

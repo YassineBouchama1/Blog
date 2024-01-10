@@ -46,8 +46,6 @@ class CategoryController
 
 
 
-
-
     // Create a new category
     public static function createAction()
     {
@@ -57,6 +55,13 @@ class CategoryController
 
         $image = isset($_FILES['image']) ? $_FILES['image'] : null;
 
+
+        // chekc if category name is alreayd exist
+        $isExist = CategoryModel::findByName($name);
+        if ($isExist) {
+            Utility::sendResponse("name category already exist", 402);
+            return;
+        }
 
         if ($image === null) {
             Utility::sendResponse("image is required", 500);
@@ -113,6 +118,14 @@ class CategoryController
 
 
         if ($isCategoryExist) {
+
+
+            // chekc if category name is alreayd exist
+            $isExist = CategoryModel::findByName($name, $category_id);
+            if ($isExist) {
+                Utility::sendResponse("name Category already exist", 402);
+                return;
+            }
 
             $category = new CategoryModel();
 

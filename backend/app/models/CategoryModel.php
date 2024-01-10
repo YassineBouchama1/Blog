@@ -40,6 +40,34 @@ class CategoryModel extends BaseModel
             ->fetch(PDO::FETCH_ASSOC);
     }
 
+
+    // get category by name
+    // id passed only in update cases
+    public static function findByName($categoryName, $id = null)
+    {
+
+        $query = "SELECT * FROM categories WHERE category_name = :categoryName";
+
+
+        if ($id !== null) {
+            $query .= " AND category_id != :id";
+        }
+
+        $stmt = static::database()->prepare($query);
+        $stmt->bindParam(':categoryName', $categoryName, PDO::PARAM_STR);
+
+        if ($id !== null) {
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        }
+
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+
+
+
     // Create a new category
     public function create()
     {
@@ -68,7 +96,7 @@ class CategoryModel extends BaseModel
 
         $sql = rtrim($sql, ", ");
 
-       
+
         $sql .= " WHERE category_id=? ";
         $params[] = $this->id;
 

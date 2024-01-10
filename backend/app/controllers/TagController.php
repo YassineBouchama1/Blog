@@ -55,6 +55,14 @@ class TagController
         // Check if data is sent in the POST request
         $name = isset($_POST['name']) ? $_POST['name'] : null;
 
+
+        // chekc if category name is alreayd exist
+        $isExist = TagModel::findByName($name);
+        if ($isExist) {
+            Utility::sendResponse("name Tag already exist", 402);
+            return;
+        }
+
         $tag = new TagModel();
         $tag->setName($name);
 
@@ -96,6 +104,14 @@ class TagController
 
 
         if ($isTagExist) {
+
+
+            // chekc if category name is alreayd exist
+            $isExist = TagModel::findByName($name, $tag_id);
+            if ($isExist) {
+                Utility::sendResponse("name Tag already exist", 402);
+                return;
+            }
 
             $tag = new TagModel();
 

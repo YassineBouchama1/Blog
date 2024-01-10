@@ -35,6 +35,33 @@ class TagModel extends BaseModel
             ->fetch(PDO::FETCH_ASSOC);
     }
 
+    // get category by name
+    // id passed only in update cases
+    public static function findByName($tagName, $id = null)
+    {
+
+        $query = "SELECT * FROM tgs WHERE tag_name = :tagName";
+
+
+        if ($id !== null) {
+            $query .= " AND category_id != :id";
+        }
+
+        $stmt = static::database()->prepare($query);
+        $stmt->bindParam(':tagName', $tagName, PDO::PARAM_STR);
+
+        if ($id !== null) {
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        }
+
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+
+
+
     // Create a new category
     public function create()
     {

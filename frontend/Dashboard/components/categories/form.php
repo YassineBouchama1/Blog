@@ -1,5 +1,5 @@
 <div class="flex flex-col  items-center w-full text-xs px-4 py-8 gap-y-6">
-    <p id="error_msg"></p>
+    <p id="error_msg" class="text-red-500"></p>
 
     <div class=" w-full text-xs">
         <label class="font-semibold text-gray-600 py-2">Name <abbr title="required">*</abbr></label>
@@ -11,6 +11,6 @@
         <img  class=" max-h-[60px] max-w-[60px] my-2" alt="category" id="displatImgCategory">
 
     </div>
-    <button id="btnForm" class=" max-w-[200px] px-4 py-2 text-sm font-medium text-center text-white bg-[#01BE37] rounded-lg hover:bg-[#01BE37]">create</button>
+    <button id="btnFormCat" class=" max-w-[200px] px-4 py-2 text-sm font-medium text-center text-white bg-[#01BE37] rounded-lg hover:bg-[#01BE37]">create</button>
 
 </div>
