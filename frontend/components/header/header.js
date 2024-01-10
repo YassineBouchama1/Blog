@@ -1,3 +1,4 @@
+console.log(window.location.origin)
 document.addEventListener('DOMContentLoaded', function () {
 
   // let toggleSideBar = document.getElementById('toggleSideBar');

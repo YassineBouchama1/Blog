@@ -1,5 +1,5 @@
 const API_BASE_URL = 'http://localhost/blog/backend/auth.php';
-
+console.log('from login dahsboard')
 document.addEventListener('DOMContentLoaded', function () {
 
     let loader = document.getElementById('loader')
@@ -68,22 +68,25 @@ document.addEventListener('DOMContentLoaded', function () {
                 loader.classList.add('hidden')
                 return;
             }
-            if (response.user.role === 'admin') {
-                error_msg.textContent = 'password or email uncorrect<this is Admin info>'
+
+            if (response.user.role === 'author') {
+                error_msg.textContent = 'password or email uncorrect<this is author info>'
                 loader.classList.add('hidden')
                 return;
             }
             //   window.location.replace
 
             // if (response.user)
-            localStorage.setItem('user_id', response.user.user_id)
+            localStorage.setItem('admin_id', response.user.user_id)
             localStorage.setItem('role', response.user.role)
+            localStorage.setItem('image_admin', response.user.image)
+            localStorage.setItem('username_admin', response.user.username)
             console.log(response.user.user_id)
 
             setInterval(() => {
                 window.location.href = '../'
                 loader.classList.add('hidden')
-            }, 500)
+            }, 1000)
 
             successfully_msg.textContent = "Loging Successfully"
         } catch (error) {

@@ -1,13 +1,30 @@
 const API_BASE_URL = 'http://localhost/blog/backend/auth.php';
 
 document.addEventListener('DOMContentLoaded', function () {
-
+    let avatar = document.getElementById('avatar');
+    let avatarInput = document.getElementById('avatarInput');
     let loader = document.getElementById('loader')
-
+    let username = document.getElementById('username');
     let email = document.getElementById('email');
     let error_msg = document.getElementById('error_msg');
     let password = document.getElementById('password');
     const successfully_msg = document.getElementById('successfully_msg');
+    avatarInput.addEventListener('change', changeAvatar);
+
+    function changeAvatar() {
+        if (avatarInput.files.length !== 0) {
+            const file = avatarInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+
+                avatar.src = e.target.result;
+            };
+
+
+            reader.readAsDataURL(file);
+        }
+    }
 
 
     // on click on btn create  excute funtion <onBtnFormClick>
@@ -23,9 +40,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // on click BtnFormCreate
     async function onBtnFormClick() {
         console.log('clicked create')
-
         error_msg.textContent = ''
         //validation inputs
+        if (username.value.trim() === '') {
+            return error_msg.textContent = 'username is Required'
+        }
 
         let emailValid = /^[^@\s\r\n]+@[^@\s\r\n]+\.[^@\s\r\n]+$/;
 
@@ -36,8 +55,14 @@ document.addEventListener('DOMContentLoaded', function () {
         if (password.value === '') {
             return error_msg.textContent = 'password is Required'
         }
+        if (password.value.length <= 5) {
+            return error_msg.textContent = 'password to short'
+        }
 
 
+        if (avatarInput.files.length === 0) {
+            return error_msg.textContent = 'image is Required'
+        }
 
 
 
@@ -45,15 +70,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
         //create formdata to send it to server
         const formData = new FormData();
+        formData.append('username', username.value);
         formData.append('email', email.value);
         formData.append('password', password.value);
-
+        formData.append('image', avatarInput.files[0]);
         console.log(password.value)
 
         //active loader
         loader.classList.remove('hidden')
         try {
-            let routePromise = await fetch(`${API_BASE_URL}?action=login`, {
+            let routePromise = await fetch(`${API_BASE_URL}?action=register`, {
                 method: 'POST',
                 body: formData,
             });
@@ -63,32 +89,29 @@ document.addEventListener('DOMContentLoaded', function () {
             let response = await routePromise.json();
             console.log(response);
 
-            if (response.status === 500) {
-                error_msg.textContent = 'password or email uncorrect'
-                loader.classList.add('hidden')
-                return;
-            }
-            if (response.user.role === 'admin') {
-                error_msg.textContent = 'password or email uncorrect<this is Admin info>'
-                loader.classList.add('hidden')
-                return;
-            }
+
+
             //   window.location.replace
+            if (response.status === 500) {
+                error_msg.textContent = response.message
+                return;
+            }
+            if (response.status === 404) {
+                error_msg.textContent = response.message
+                return;
+            }
 
-            // if (response.user)
-            localStorage.setItem('user_id', response.user.user_id)
-            localStorage.setItem('role', response.user.role)
-            console.log(response.user.user_id)
-
+            console.log('created')
             setInterval(() => {
-                window.location.href = '../'
+                window.location.href = './login.php'
                 loader.classList.add('hidden')
-            }, 500)
+            }, 2000)
 
-            successfully_msg.textContent = "Loging Successfully"
+            successfully_msg.textContent = "Post Created"
         } catch (error) {
             console.log(error);
             loader.classList.add('hidden')
+            error_msg.textContent = 'Problem on Server'
         }
 
 

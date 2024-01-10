@@ -37,15 +37,26 @@
       <i class="ti ti-bell text-3xl cursor-pointer"></i>
     </div>
 
+    <div class="isAuthor group">
+      <button id="logout">
+        <i class="ti ti-logout  text-3xl cursor-pointer"></i>
+      </button>
+      <div class="group-hover:flex hidden popover absolute bg-gray-700 border shadow-md mt-2 px-4 py-2 rounded-lg">
 
+        <p class="text-white ">Logout</p>
+      </div>
+    </div>  
     <div class="flex w-full gap-x-2">
-      <img alt="ProfileImg" src="https://spike-nextjs-pro-main.vercel.app/images/profile/user5.jpg" class="rounded-full object-cover object-center w-10 h-10 modernize-1hy9t21">
+      <img id="ProfileImg" alt="ProfileImg" src="https://spike-nextjs-pro-main.vercel.app/images/profile/user5.jpg" class="rounded-full object-cover object-center w-10 h-10 modernize-1hy9t21">
 
-      <h3 class="font-bold flex flex-col dark:text-white">Yassine Bouc <span class="font-light  dark:text-white">Admin</span></h3>
+      <div class="font-bold flex flex-col dark:text-white">
+        <h3 id="username_admin" class="font-bold flex flex-col dark:text-white">Yassine Bouc </h3>
+        </h><span class="font-light  dark:text-white">Admin</span>
+        </h3>
+
+      </div>
 
     </div>
-
-  </div>
 
 </header>
 

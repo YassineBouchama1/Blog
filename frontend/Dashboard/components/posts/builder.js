@@ -76,7 +76,7 @@ function builder(container_list, item) {
                     onclick="onBtnChnageStatus(${item.post_id})"
                     type="button" class="text-white ${isActivePost ? "bg-red-700 hover:bg-red-800 " : "bg-green-700 hover:bg-green-800 "}  font-medium rounded-full text-sm px-4 py-1 text-center me-2 mb-2  ">${isActivePost ? 'Block' : 'Active'}</button>
            
-                       <a href="/posts/${item.post_id}" target="blank"><i class="ti ti-eye"></i></a>
+                       <a href="../post.php?post_id=${item.post_id}" target="blank"><i class="ti ti-eye"></i></a>
 
                     </td > `;
 
