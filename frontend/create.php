@@ -53,6 +53,7 @@
 
         <script src="theme.js"></script>
     </div>
+    <?php require('components\searchBar\search.php') ?>
     <?php require('components/footer/footer.php') ?>
 
 </body>
