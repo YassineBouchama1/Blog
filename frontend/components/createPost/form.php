@@ -25,14 +25,24 @@
                         <label for="about" class="block text-sm font-medium leading-6 text-gray-900  dark:text-white ">Content<span class="text-red-500">*</span></label>
 
                         <div id="containerContent" class="mt-2 relative">
-                            <textarea id="content" name="content" rows="6" class="p-6 bg-transparent block w-full rounded-md border-0  w-full text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
-                            <p id='bot_creating' class="hidden absolute top-0  bottom-0 left-0 right-0 bg-blue-500/50 text-gray-700 rounded-lg py-2 px-4 flex justify-start items-center gap-x-1">Thinking
+                            <textarea id="content" name="content" rows="6" class="relative p-6 bg-transparent block w-full rounded-md border-0  w-full text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                            <div id='bot_creating' class="hidden absolute top-1  flex  bottom-0 left-0 right-0  text-[#0085DB]/80 rounded-lg py-2 px-4 flex justify-start ">
+                                Generating
+                                <svg class="h-4 w-4 animate-spin stroke-gray-500" viewBox="0 0 256 256">
+                                    <line x1="128" y1="32" x2="128" y2="64" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
+                                    <line x1="195.9" y1="60.1" x2="173.3" y2="82.7" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
+                                    <line x1="224" y1="128" x2="192" y2="128" stroke-linecap="round" stroke-linejoin="round" stroke-width="24">
+                                    </line>
+                                    <line x1="195.9" y1="195.9" x2="173.3" y2="173.3" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
+                                    <line x1="128" y1="224" x2="128" y2="192" stroke-linecap="round" stroke-linejoin="round" stroke-width="24">
+                                    </line>
+                                    <line x1="60.1" y1="195.9" x2="82.7" y2="173.3" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
+                                    <line x1="32" y1="128" x2="64" y2="128" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
+                                    <line x1="60.1" y1="60.1" x2="82.7" y2="82.7" stroke-linecap="round" stroke-linejoin="round" stroke-width="24">
+                                    </line>
+                                </svg>
 
-                                <span class='h-1.5 w-1.5 bg-gray-300 rounded-full animate-bounce [animation-delay:-0.1s]'></span>
-                                <span class='h-1.5 w-1.5 bg-gray-300 rounded-full animate-bounce [animation-delay:-0.15s]'></span>
-                                <span class='h-1.5 w-1.5 bg-gray-300 rounded-full animate-bounce'></span>
-
-                            </p>
+                            </div>
                             <?php require('components\createPost\bot.php') ?>
 
                         </div>

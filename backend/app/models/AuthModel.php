@@ -101,10 +101,13 @@ class AuthModel extends BaseModel
     }
 
 
-    // get user id by  id
+    // get user by email
     public static function find($email)
     {
-        return static::database()->query("SELECT * FROM users WHERE email =  $email")
-            ->fetch(PDO::FETCH_ASSOC);
+        $stmt = static::database()->prepare("SELECT * FROM users WHERE email = :email");
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }

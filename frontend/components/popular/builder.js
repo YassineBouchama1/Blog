@@ -34,7 +34,10 @@ document.addEventListener('DOMContentLoaded', async function () {
         loader.classList.add('hidden')
       } else {
         console.log('no posts')
-        container_list.innerHTML = 'no posts'
+        container_list.innerHTML = `<div class="text-center absolute left-0 right-0">
+        <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">No Posts Available</h1>
+        <p class="text-gray-600 dark:text-gray-400"></p>
+      </div>`
         loader.classList.add('hidden')
 
       }

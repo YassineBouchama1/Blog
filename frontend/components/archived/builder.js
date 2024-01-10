@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       const routePromise = await fetch(`${API_BASE_URL}?action=ArchivedPosts`);
       const data = await routePromise.json();
 
-
+      console.log(data)
       if (data.length >= 0) {
         container_list.innerHTML = '';
 
@@ -77,6 +77,8 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 
     const card = document.createElement('article');
+
+    // check if this post 
     let isOwner = item.user_id == user_id
 
 

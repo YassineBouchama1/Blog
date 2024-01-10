@@ -51,12 +51,12 @@ class AuthController
         $isExist = AuthModel::find($email);
 
 
-        $user = $isExist->fetch(PDO::FETCH_ASSOC);
+        // $user = $isExist->fetch(PDO::FETCH_ASSOC);
 
 
 
         // Check if a suser exists
-        if ($email ===  $user['email']) {
+        if ($isExist) {
 
             Utility::sendResponse("Email ALready Exist", 404);
             return;

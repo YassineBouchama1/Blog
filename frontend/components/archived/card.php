@@ -5,7 +5,6 @@
 
     <button class="absolute top-[-4%]  bg-[#0085DB] rounded-lg text-white px-4 py-2 ">Loading...</button>
     <div class="">
-      <img class="bg-white rounded-tl-[18px] rounded-tr-[18px] " src="https://www.ancmedia.net/instant-blog/uploads/1640090535.jpg">
 
     </div>
     <div class="p-2 text-center ">
