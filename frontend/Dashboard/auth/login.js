@@ -75,7 +75,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
             //   window.location.replace
+            console.log('clear localstorage')
+            localStorage.clear()
 
+          
             // if (response.user)
             localStorage.setItem('admin_id', response.user.user_id)
             localStorage.setItem('role', response.user.role)
@@ -89,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 1000)
 
             successfully_msg.textContent = "Loging Successfully"
+
         } catch (error) {
             console.log(error);
             loader.classList.add('hidden')

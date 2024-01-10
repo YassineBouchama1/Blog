@@ -36,6 +36,7 @@
 
     <?php require('layout/header/Header.php') ?>
 
+
     <!-- Header Start -->
 
 
@@ -44,7 +45,7 @@
     <!--  start page content  -->
     <div class="rounded-[18px] h-full mt-6 ">
 
-
+      <?php require('components\status/index.php') ?>
 
       <!--  start Cards  -->
       <div class="bg-white dark:bg-[#111c2d] dark:text-white text-black transition-shadow rounded-[18px] shadow-md  backdrop-blur-md h-[250px] w-[250px] p-4">

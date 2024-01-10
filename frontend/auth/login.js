@@ -73,8 +73,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 loader.classList.add('hidden')
                 return;
             }
-            //   window.location.replace
-
+            console.log('clear localstorage')
+            localStorage.clear()
             // if (response.user)
             localStorage.setItem('user_id', response.user.user_id)
             localStorage.setItem('role', response.user.role)
