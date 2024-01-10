@@ -2,15 +2,15 @@
 
 
 
-const btnCreate = document.getElementById('btnCreate');
+const btnForm = document.getElementById('btnCreate');
 const name = document.getElementById('name');
 const error_msg = document.getElementById('error_msg');
+let idTag = null;
 
 
 
 
-
-btnCreate.addEventListener('click', onBtnFormClick);
+btnForm.addEventListener('click', onBtnFormClick);
 
 
 
@@ -21,6 +21,9 @@ async function onBtnFormClick() {
     //validation inputs
     if (name.value.trim() === '') {
         return error_msg.textContent = 'name is Required'
+    }
+    if (idTag === null) {
+        return error_msg.textContent = 'id is required'
     }
 
 
@@ -33,25 +36,56 @@ async function onBtnFormClick() {
     formData.append('name', name.value);
 
 
-    try {
-        let routePromise = await fetch(`${API_BASE_URL}?action=create`, {
-            method: 'POST',
-            body: formData,
-        });
+    // if btn name create  exute code create 
+    if (btnForm.textContent === 'create') {
 
 
 
-        let response = await routePromise.json();
-        console.log(response);
-        name.value = ''
+        try {
+            let routePromise = await fetch(`${API_BASE_URL}?action=create`, {
+                method: 'POST',
+                body: formData,
+            });
 
-        onLoadBuild();
 
-        console.log('created')
-    } catch (error) {
-        console.error(error);
+
+            let response = await routePromise.json();
+            console.log(response);
+            name.value = ''
+
+            onLoadBuild();
+
+            console.log('created')
+        } catch (error) {
+            console.error(error);
+        }
+
+
     }
 
+    // btnFrom not equal create : excute update
+    else {
+        try {
+            let routePromise = await fetch(`${API_BASE_URL}?action=update&tag_id=${idTag}`, {
+                method: 'POST',
+                body: formData,
+            });
+
+
+
+            let response = await routePromise.json();
+            console.log(response);
+            name.value = ''
+
+            onToggle()
+            onLoadBuild();
+
+            console.log('Updated')
+        } catch (error) {
+            console.error(error);
+        }
+
+    }
 
 
 }

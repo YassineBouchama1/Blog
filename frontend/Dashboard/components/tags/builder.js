@@ -36,8 +36,32 @@ function builder(container_list, item) {
 
     <div class="flex mt-4 md:mt-6">
         <button  onclick="onBtnDelete(${item.tag_id})" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-full hover:bg-red-800     dark:bg-red-600 dark:hover:bg-red-700 ">Delete</button>
+        <button onclick="onBtnUpdate(${item.tag_id})" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100  dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 ms-3">Edit</button>
+
     </div>
 </div>`;
 
     container_list.appendChild(card);
 }
+
+
+//this function to display data category for update it
+async function onBtnUpdate(id) {
+
+    console.log(btnForm.textContent)
+    onToggle()
+    btnForm.textContent = 'update'
+    idTag = id
+    try {
+        let routePromise = await fetch(`${API_BASE_URL}?action=find&tag_id=${id}`);
+
+        let response = await routePromise.json();
+        name.value = response.tag_name
+
+        console.log('Update')
+    } catch (error) {
+        console.error(error);
+    }
+
+}
+
