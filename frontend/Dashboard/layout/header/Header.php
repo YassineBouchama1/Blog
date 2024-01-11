@@ -45,7 +45,7 @@
 
         <p class="text-white ">Logout</p>
       </div>
-    </div>  
+    </div>
     <div class="flex w-full gap-x-2">
       <img id="ProfileImg" alt="ProfileImg" src="https://spike-nextjs-pro-main.vercel.app/images/profile/user5.jpg" class="rounded-full object-cover object-center w-10 h-10 modernize-1hy9t21">
 

@@ -5,8 +5,11 @@
     <script>
         if (localStorage.getItem('role') === 'author') {
             window.location.href = `../profile.php?action=userPosts&user_id=${localStorage.getItem('user_id')}`
-        } else if (localStorage.getItem('role') === 'admin') {
-            window.location.href = `../dashboard`
+
+        }
+        if (localStorage.getItem('role') === 'admin') {
+            window.location.href = `${window.location.origin}/blog/frontend/dashboard`
+
         }
     </script>
     <meta charset="UTF-8">

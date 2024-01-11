@@ -9,6 +9,10 @@
         if (!searchParamsChecker.has('user_id')) {
 
             window.location.href = './'
+        } else if (localStorage.getItem('role') === 'admin') {
+
+            window.location.href = `${window.location.origin}/blog/frontend/dashboard`
+
         }
     </script>
     <meta charset="UTF-8">

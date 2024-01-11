@@ -2,12 +2,8 @@
 <html lang="en">
 
 <head>
-  <script>
-    if (localStorage.getItem('role') !== 'admin') {
-      window.location.href = `${window.location.origin}/blog/frontend/dashboard/auth/login.php`
 
-    }
-  </script>
+  <script src="midleWars\admin.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>

@@ -2,7 +2,10 @@
 window.location.pathname;
 
 document.addEventListener('DOMContentLoaded', function () {
+    var currentPath = window.location.pathname;
 
+    // Find the corresponding link in the sidebar and add the "active" class
+    var sidebarLinks = document.querySelectorAll("#sidebar_dash a");
 
 
 
@@ -23,5 +26,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    
+
+
+    sidebarLinks.forEach(function (link) {
+        var href = link.getAttribute("href");
+        console.log(link)
+        // Check if the currentPath matches the href
+        if (currentPath === href) {
+            link.parentNode.classList.add("text-red-500");
+            console.log(link)
+        }
+    });
+
+
 });
+
+
+

@@ -68,22 +68,47 @@ document.addEventListener('DOMContentLoaded', function () {
                 loader.classList.add('hidden')
                 return;
             }
-            if (response.user.role === 'admin') {
-                error_msg.textContent = 'password or email uncorrect<this is Admin info>'
-                loader.classList.add('hidden')
-                return;
-            }
+            // if (response.user.role === 'admin') {
+            //     error_msg.textContent = 'password or email uncorrect<this is Admin info>'
+            //     loader.classList.add('hidden')
+            //     return;
+            // }
+
             console.log('clear localstorage')
             localStorage.clear()
-            // if (response.user)
-            localStorage.setItem('user_id', response.user.user_id)
-            localStorage.setItem('role', response.user.role)
-            console.log(response.user.user_id)
 
-            setInterval(() => {
-                window.location.href = '../'
-                loader.classList.add('hidden')
-            }, 500)
+
+
+            //cif user has role admin send it to dahsboard
+            if (response.user.role === 'admin') {
+
+                localStorage.setItem('admin_id', response.user.user_id)
+                localStorage.setItem('role', response.user.role)
+                localStorage.setItem('image_admin', response.user.image)
+                localStorage.setItem('username_admin', response.user.username)
+                console.log(response.user.user_id)
+
+                setInterval(() => {
+                    window.location.href = '../dashboard'
+                    loader.classList.add('hidden')
+                }, 500)
+            }
+
+            //cif user has role author send it to home page
+
+            else {
+
+                localStorage.setItem('user_id', response.user.user_id)
+                localStorage.setItem('role', response.user.role)
+                console.log(response.user.user_id)
+                setInterval(() => {
+                    window.location.href = '../'
+                    loader.classList.add('hidden')
+                }, 500)
+            }
+
+
+
 
             successfully_msg.textContent = "Loging Successfully"
         } catch (error) {

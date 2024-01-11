@@ -2,6 +2,16 @@
 <html lang="en">
 
 <head>
+    <script>
+        if (localStorage.getItem('role') === 'author') {
+            window.location.href = `../profile.php?action=userPosts&user_id=${localStorage.getItem('user_id')}`
+
+        }
+        if (localStorage.getItem('role') === 'admin') {
+            window.location.href = `${window.location.origin}/blog/frontend/dashboard`
+
+        }
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
@@ -10,12 +20,7 @@
 
     <script src="https://kit.fontawesome.com/ea3542be0c.js" crossorigin="anonymous"></script>
 
-    <script>
-        if (localStorage.getItem('role') === 'author') {
-            window.location.href = `../profile.php?action=userPosts&user_id=${localStorage.getItem('user_id')}`
 
-        }
-    </script>
 </head>
 
 <body>
