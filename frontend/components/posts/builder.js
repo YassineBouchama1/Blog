@@ -64,15 +64,20 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 
 
-    //slice tags cuz all tags came liek thsi js,code,...
-    let tags = item.tags.split(',');
+    let tags = null
+    let tagButtons = null
+    if (item.tags) {
+      //slice tags cuz all tags came liek thsi js,code,...
+      tags = item.tags.split(',');
 
-    // Map through the tags array to generate button elements
-    const tagButtons = tags.map(tag => `
-    <a href="./tags.php?name=${tag}"  class="inline-flex items-center justify-center font-medium border-black ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-6 rounded-full text-xs py-1 px-1">
+      // Map through the tags array to generate button elements
+      tagButtons = tags.map(tag => `
+    <button class="inline-flex items-center justify-center font-medium border-black ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-6 rounded-full text-xs py-1 px-1">
         ${tag.trim()}
-    </a>
+    </button>
 `).join('');
+    }
+
 
     const relativeTime = await timeAgo(item.date_created);
 
@@ -98,7 +103,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   
   
       <div class="flex flex-wrap gap-2 mt-2">
-      ${tagButtons}
+      ${tagButtons ? tagButtons : ''}
       </div>
   
     </div>

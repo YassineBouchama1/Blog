@@ -51,7 +51,7 @@
 
     </div>
 
-  </article>
+  </article>  
 
 
 

@@ -2,11 +2,13 @@
 window.location.pathname;
 
 document.addEventListener('DOMContentLoaded', function () {
-    var currentPath = window.location.pathname;
+
+
+    let currentPath = window.location.pathname;
 
     // Find the corresponding link in the sidebar and add the "active" class
-    var sidebarLinks = document.querySelectorAll("#sidebar_dash a");
-
+    let sidebarLinks = document.querySelectorAll("#sidebar_dash a");
+    let mainlink = document.getElementById("mainlink");
 
 
     let toggleSideBar = document.getElementById('toggleSideBarinside');
@@ -27,16 +29,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
+    // 
     sidebarLinks.forEach(function (link) {
-        var href = link.getAttribute("href");
-        console.log(link)
-        // Check if the currentPath matches the href
-        if (currentPath === href) {
-            link.parentNode.classList.add("text-red-500");
-            console.log(link)
+        let href = link.getAttribute("href");
+
+
+
+        // if href empty or contain index that mean 
+        //add active link to dashboard li
+        if (href.slice(2) === '' || href.slice(2).includes('index')) {
+            mainlink.classList.add("bg-[#e5f3fb]", "text-[#0085DB]");
+
+        }
+
+        //  //add active link to  similar text
+        else if (currentPath.includes(href.slice(2))) {
+
+            link.parentNode.classList.add("bg-[#e5f3fb]", "text-[#0085DB]");
+            mainlink.classList.remove("bg-[#e5f3fb]", "text-[#0085DB]");
         }
     });
+
 
 
 });

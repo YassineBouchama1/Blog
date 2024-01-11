@@ -5,7 +5,7 @@
 
     <button class="absolute top-[-4%]  bg-[#0085DB] rounded-lg text-white px-4 py-2 ">Loading...</button>
     <div class="">
-      <img class="bg-white rounded-tl-[18px] rounded-tr-[18px] " src="https://www.ancmedia.net/instant-blog/uploads/1640090535.jpg">
+      <img class="bg-white rounded-tl-[18px] rounded-tr-[18px] opacity-5 " src="https://www.ancmedia.net/instant-blog/uploads/1640090535.jpg">
 
     </div>
     <div class="p-2 text-center ">
@@ -15,7 +15,6 @@
 
       </div>
       <a href="#" class="text-center  mb-2 text-md font-bold leading-none tracking-tight text-gray-900 md:text-2xl   dark:text-white   ">Title Post</a>
-      <p class="max-w-xs break-words text-center overflow-ellipsis">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum aspernatur quod dolorum necessitatibus... </p>
 
 
       <div class="flex flex-wrap gap-2 mt-2 ">

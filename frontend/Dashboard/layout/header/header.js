@@ -24,11 +24,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    logoutBtn.addEventListener('click', function () {
-        console.log('clicklogout')
-        localStorage.clear()
 
-        window.location.reload()
-    })
 
-});
+
+    });
+
+
