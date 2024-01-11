@@ -117,8 +117,10 @@ async function builder(container_list, item) {
 
   let isActivePost = item.archived === 1;
 
+  let isOwner = item.user_id == user_id
+
   //if post archived dont display it
-  if (!isActivePost) return;
+  if (!isActivePost && !isOwner) return;
 
 
 
@@ -138,11 +140,10 @@ async function builder(container_list, item) {
 
   const card = document.createElement('article');
 
-  let isOwner = item.user_id == user_id
 
 
   console.log(isOwner)
-  card.classList = 'relative flex flex-col jusitfy-between gap-4 items-center min-h-[250px] h-auto  w-full bg-[#e5e5e5] dark:bg-[#252936] dark:text-white text-black  rounded-[18px]   backdrop-blur-md  ';
+  card.classList = `${!isActivePost && 'opacity-20'} relative flex flex-col jusitfy-between gap-4 items-center min-h-[250px] h-auto  w-full bg-[#e5e5e5] dark:bg-[#252936] dark:text-white text-black  rounded-[18px]   backdrop-blur-md  `;
   card.innerHTML = `
   <button class="absolute top-[-4%]  bg-[#0085DB] rounded-lg text-white px-4 py-2 ">${item.category}</button>
   <div class="">
