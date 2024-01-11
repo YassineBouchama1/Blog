@@ -1,106 +1,93 @@
 <div class="grid gap-4 lg:gap-8 md:grid-cols-5 pb-8 ">
 
 
-    <div class=" relative p-6 rounded-2xl bg-[#e8f7ff] shadow dark:bg-gray-800 ">
-        <div class="space-y-2 text-center">
-            <div class="flex items-center justify-center space-x-2 rtl:space-x-reverse text-sm font-medium text-gray-500 dark:text-gray-200">
-                <span>Revenue</span>
+    <div class=" relative p-6 rounded-[18px] bg-[#dffff3] shadow-sm ">
+        <div class="space-y-2 text-center text-[#04AA55]">
+            <div class="flex items-center justify-center space-x-2 rtl:space-x-reverse text-sm font-medium ">
+                <i class="fa-solid fa-newspaper text-xl "></i>
             </div>
 
-            <div class="text-3xl">
-                $192.1k
+            <div id="articleStatus" class="text-3xl ">
+                loading...
             </div>
 
-            <div class="flex  justify-center items-center space-x-1 rtl:space-x-reverse text-sm font-medium text-green-600">
+            <div class="flex  justify-center items-center space-x-1 rtl:space-x-reverse text-sm font-medium ">
 
-                <span>32k increase</span>
+                <span>Articles</span>
 
-                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd"></path>
-                </svg>
+
             </div>
         </div>
     </div>
-    <div class=" relative p-6 rounded-2xl bg-[#e8f7ff] shadow dark:bg-gray-800 ">
-        <div class="space-y-2 text-center">
-            <div class="flex items-center justify-center space-x-2 rtl:space-x-reverse text-sm font-medium text-gray-500 dark:text-gray-200">
-                <span>Revenue</span>
+    <div class=" relative p-6 rounded-[18px] bg-[#fff6ea] shadow-sm  ">
+        <div class="space-y-2 text-center text-[#F69A21]">
+            <div class="flex items-center justify-center space-x-2 rtl:space-x-reverse text-sm font-medium ">
+                <i class="fa-solid fa-user"></i>
             </div>
 
-            <div class="text-3xl">
-                $192.1k
+            <div id="authorStatus" class="text-3xl">
+                loading...
             </div>
 
-            <div class="flex  justify-center items-center space-x-1 rtl:space-x-reverse text-sm font-medium text-green-600">
+            <div class="flex  justify-center items-center space-x-1 rtl:space-x-reverse text-sm font-medium ">
 
-                <span>32k increase</span>
+                <span>Authors</span>
 
-                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd"></path>
-                </svg>
             </div>
         </div>
     </div>
 
-    <div class=" relative p-6 rounded-2xl bg-[#e8f7ff] shadow dark:bg-gray-800 ">
-        <div class="space-y-2 text-center">
-            <div class="flex items-center justify-center space-x-2 rtl:space-x-reverse text-sm font-medium text-gray-500 dark:text-gray-200">
-                <span>Revenue</span>
+    <div class=" relative p-6 rounded-[18px] bg-[#e1f5fa] shadow-sm  ">
+        <div class="space-y-2 text-center text-[#009EC5]">
+            <div class="flex items-center justify-center space-x-2 rtl:space-x-reverse text-sm font-medium ">
+                <i class="fa-solid fa-box-archive"></i>
             </div>
 
-            <div class="text-3xl">
-                $192.1k
+            <div id="archivedStatus" class="text-3xl">
+                loading...
             </div>
 
-            <div class="flex  justify-center items-center space-x-1 rtl:space-x-reverse text-sm font-medium text-green-600">
+            <div class="flex  justify-center items-center space-x-1 rtl:space-x-reverse text-sm font-medium ">
 
-                <span>32k increase</span>
+                <span>Articles Archived</span>
 
-                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd"></path>
-                </svg>
             </div>
         </div>
     </div>
 
-    <div class=" relative p-6 rounded-2xl bg-[#e8f7ff] shadow dark:bg-gray-800 ">
-        <div class="space-y-2 text-center">
-            <div class="flex items-center justify-center space-x-2 rtl:space-x-reverse text-sm font-medium text-gray-500 dark:text-gray-200">
-                <span>Revenue</span>
+    <div class=" relative p-6 rounded-[18px] bg-[#ffede9] shadow-sm  ">
+        <div class="space-y-2 text-center text-[#F44720]">
+            <div class="flex items-center justify-center space-x-2 rtl:space-x-reverse text-sm font-medium ">
+                <i class="fa-regular fa-eye"></i>
             </div>
 
-            <div class="text-3xl">
-                $192.1k
+            <div id="viewsStatus" class="text-3xl">
+                loading...
             </div>
 
-            <div class="flex  justify-center items-center space-x-1 rtl:space-x-reverse text-sm font-medium text-green-600">
+            <div class="flex  justify-center items-center space-x-1 rtl:space-x-reverse text-sm font-medium ">
 
-                <span>32k increase</span>
+                <span>Views</span>
 
-                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd"></path>
-                </svg>
+
             </div>
         </div>
     </div>
 
-    <div class=" relative p-6 rounded-2xl bg-[#e8f7ff] shadow dark:bg-gray-800 ">
-        <div class="space-y-2 text-center">
-            <div class="flex items-center justify-center space-x-2 rtl:space-x-reverse text-sm font-medium text-gray-500 dark:text-gray-200">
-                <span>Revenue</span>
+    <div class="relative p-6 rounded-[18px] bg-[#FFECFB] shadow-sm  ">
+        <div class="space-y-2 text-center text-#FD3DD4B]">
+            <div class="flex items-center justify-center space-x-2 rtl:space-x-reverse text-sm font-medium ">
+                <i class="fa-solid fa-layer-group  text-#FD3DD4B]"></i>
             </div>
 
-            <div class="text-3xl">
-                $192.1k
+            <div id="categoriesStatus" class="text-3xl  text-#FD3DD4B]">
+                loading...
             </div>
 
-            <div class="flex  justify-center items-center space-x-1 rtl:space-x-reverse text-sm font-medium text-green-600">
+            <div class="flex  justify-center items-center space-x-1 rtl:space-x-reverse text-sm font-medium ">
 
-                <span>32k increase</span>
+                <span>Categories</span>
 
-                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd"></path>
-                </svg>
             </div>
         </div>
     </div>
@@ -108,3 +95,5 @@
 
 
 </div>
+
+<script src="components\status\status.js"></script>

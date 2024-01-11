@@ -1,7 +1,9 @@
     <aside id="sidebar_dash" class="w-[270px] bg-white dark:bg-[#111c2d] dark:text-white rounded-[18px] h-screen  flex flex-col  z-20 fixed  top-5  lg:left-5  left-[-100%]   bottom-5  shadow-md transition-width duration-150 ease-in-out  ">
       <div class="h-[100px] p-5 flex justify-between ">
-        <a class="modernize-13biwtz" href="/">
-          <img alt="logo" fetchpriority="high" width="174" height="70" decoding="async" data-nimg="1" src="https://spike-nextjs-pro-main.vercel.app/images/logos/logo-dark.svg" class="text-transparent" />
+        <a class="text-center w-full " href="/">
+          <!-- <img alt="logo" fetchpriority="high" width="174" height="70" decoding="async" data-nimg="1" src="https://spike-nextjs-pro-main.vercel.app/images/logos/logo-dark.svg" class="text-transparent" /> 
+        -->
+          <h1 class="text-center font-bold text-black/60 dark:text-white text-3xl">LOGO</h1>
         </a>
         <button id="toggleSideBarinside"><i class="lg:hidden  flex ti ti-x text-xl cursor-pointer block "> </i></button>
 

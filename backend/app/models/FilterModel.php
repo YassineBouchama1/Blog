@@ -138,4 +138,18 @@ class FilterModel extends BaseModel
 
         return static::database()->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
+
+
+    // all status 
+    public static function status()
+    {
+        return static::database()->query("SELECT 
+            (SELECT COUNT(*) FROM users) AS 	uersStatus ,
+            (SELECT COUNT(views) FROM posts) AS 	viewsStatus ,
+            (SELECT COUNT(*) FROM posts )	AS postsStatus ,
+             (SELECT COUNT(*) FROM categories) AS categoriesStatus ,
+                  (SELECT COUNT(*) FROM tags ) AS tagsStatus,
+               (SELECT COUNT(*) FROM posts WHERE archived = 0 ) AS postsArchived FROM DUAL")
+            ->fetch(PDO::FETCH_ASSOC);
+    }
 }

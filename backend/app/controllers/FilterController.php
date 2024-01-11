@@ -69,4 +69,21 @@ class FilterController
 
         Utility::sendResponse("There is no post under this $category", 404);
     }
+
+
+
+    // Get post by tag name
+    public static function findSTatus()
+    {
+
+
+        $posts = FilterModel::status();
+
+        // Check if there is a data
+        if ($posts) {
+            echo json_encode($posts);
+            return;
+        }
+        Utility::sendResponse("There is no data under this ", 404);
+    }
 }

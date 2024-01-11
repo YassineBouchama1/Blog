@@ -18,6 +18,9 @@ if (isset($_GET['action'])) {
         case 'search':
             FilterController::searchPostsAction();
             break;
+        case 'status':
+            FilterController::findSTatus();
+            break;
     }
 } else {
     PostController::latestAction();
