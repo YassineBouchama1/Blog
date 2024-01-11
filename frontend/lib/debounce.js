@@ -1,12 +1,14 @@
 
-// debounce function
+// debounce function 
+// this function for avoid instenly send request to api 
 function debounce(func, wait) {
     let timeout;
+
     return function (...args) {
-        const context = this;
         clearTimeout(timeout);
+
         timeout = setTimeout(() => {
-            func.apply(context, args);
+            func(...args);
         }, wait);
     };
 }
