@@ -131,9 +131,10 @@ class FilterModel extends BaseModel
         LEFT JOIN 
             users ON users.user_id = posts.user_id
         WHERE 
-            categories.category_name LIKE '%$word%'
+           ( categories.category_name LIKE '%$word%'
             OR posts.title LIKE '%$word%'
-            OR tags.tag_name LIKE '%$word%'
+            OR tags.tag_name LIKE '%$word%')
+            AND posts.archived = 1  
         GROUP BY posts.post_id";
 
         return static::database()->query($query)->fetchAll(PDO::FETCH_ASSOC);
