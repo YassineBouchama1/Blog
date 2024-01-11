@@ -27,7 +27,10 @@
 
         <!--  start page content  -->
         <div class="rounded-[18px] h-full mt-6 ">
-            <h2 class="font-extrabold mb-20 text-2xl dark:text-white md:text-4xl text-center" id="category_title">Loading...</h2>
+            <h2 class="font-extrabold mb-20 text-2xl dark:text-white md:text-4xl text-center" id="category_title">
+                <p class="mb-6 animate-pulse rounded-md bg-gray-500 w-[100px] h-6"></p>
+                Loading ...
+            </h2>
 
 
             <?php require('components/categories/card.php') ?>

@@ -9,11 +9,12 @@
         if (!searchParamsChecker.has('user_id')) {
 
             window.location.href = './'
-        } else if (localStorage.getItem('role') === 'admin') {
-
-            window.location.href = `${window.location.origin}/blog/frontend/dashboard`
-
         }
+        // if (localStorage.getItem('role') === 'admin') {
+
+        //     window.location.href = `${window.location.origin}/blog/frontend/dashboard`
+
+        // }
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,7 +42,7 @@
 
 
         <!--  start page content  -->
-        <div class="rounded-[18px] h-full mt-6 ">
+        <div class="rounded-[18px] h-full  ">
 
 
             <?php require('components/profile/profile.php') ?>
