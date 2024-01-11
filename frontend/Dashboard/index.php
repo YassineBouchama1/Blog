@@ -45,10 +45,11 @@
       <?php require('components\status/index.php') ?>
 
       <!--  start Cards  -->
-      <div class="bg-white dark:bg-[#111c2d] dark:text-white text-black transition-shadow rounded-[18px] shadow-md  backdrop-blur-md h-[250px] w-[250px] p-4">
-        ffd
+      <!-- <div class="bg-white dark:bg-[#111c2d] dark:text-white text-black transition-shadow rounded-[18px] shadow-md  backdrop-blur-md h-[250px] w-[250px] p-4">
 
-      </div>
+
+      </div> -->
+
       <!--  end Cards  -->
 
 
