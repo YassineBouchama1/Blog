@@ -1,6 +1,6 @@
 const IMG_URL = 'http://localhost/blog/backend/';
 document.addEventListener('DOMContentLoaded', function () {
-    let logoutBtn = document.getElementById('logout')
+    let logoutDashboard = document.getElementById('logoutDashboard')
     let toggleSideBar = document.getElementById('toggleSideBar');
     let sidebar_dash = document.getElementById('sidebar_dash');
     // header dahsboard info admin
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    logoutBtn.addEventListener('click', function () {
+    logoutDashboard.addEventListener('click', function () {
         console.log('clicklogout')
         localStorage.clear()
 

@@ -95,7 +95,7 @@ async function profileBuilder(dataProfile) {
 
 // this function for remove post by passing id
 async function onDeletePost(id) {
-
+  console.log('on delete')
   try {
     let routePromise = await fetch(`${POST_BASE_URL}?action=delete&post_id=${id}`);
 

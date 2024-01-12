@@ -38,7 +38,7 @@
     </div>
 
     <div class="isAuthor group">
-      <button id="logout">
+      <button id="logoutDashboard">
         <i class="ti ti-logout  text-3xl cursor-pointer"></i>
       </button>
       <div class="group-hover:flex hidden popover absolute bg-gray-700 border shadow-md mt-2 px-4 py-2 rounded-lg">
