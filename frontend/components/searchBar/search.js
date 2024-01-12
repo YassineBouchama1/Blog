@@ -9,7 +9,11 @@ let resultLength = document.getElementById('resultLength')
 
 let searching_Loading = document.getElementById('searching_Loading')
 
-const onSearchDebounced = debounce(onLoadSearch, 500);
+
+
+// create new funtion with concept debounce wait a hel secound before
+//excute functin
+const onSearchDebounced = debounce(onLoadSearch, 2000);
 searchInput.addEventListener('input', onSearchDebounced);
 
 
