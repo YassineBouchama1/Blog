@@ -59,19 +59,28 @@ async function onBtnFormClick() {
     console.log(tagsSelected)
     //validation inputs
     if (title.value.trim() === '') {
+        window.scrollTo(0, 0);
         return error_msg.textContent = 'title is Required'
     }
+    if (title.value.length > 100) {
+        window.scrollTo(0, 0);
+        return error_msg.textContent = 'title is Bigger'
+    }
     if (content.value.trim() === '') {
+        window.scrollTo(0, 0);
         return error_msg.textContent = 'content is Required'
     }
     if (categorySelector.value === '') {
+        window.scrollTo(0, 0);
         return error_msg.textContent = 'category is Required'
     }
     if (user_id === '') {
+        window.scrollTo(0, 0);
         return error_msg.textContent = 'user id  is Required'
     }
 
     if (image.files.length === 0) {
+        window.scrollTo(0, 0);
         return error_msg.textContent = 'image is Required'
     }
 
