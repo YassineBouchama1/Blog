@@ -34,7 +34,7 @@ async function onLoadBuild() {
 //this function for building cards Category
 //required:container div  and data 
 function builder(container_list, item) {
-
+    if (item.role === 'admin') return
     let isActiveAuthor = item.isActive === 1;
     let dateCreated = item.date_created
     const card = document.createElement('tr');
