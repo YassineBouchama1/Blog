@@ -27,7 +27,7 @@
 
 
                 <li id="searching_Loading" class="hidden px-2 py-1 border-b-2 border-gray-100 flex justify-start items-center gap-x-1 cursor-pointer hover:bg-yellow-50 hover:text-gray-900">
-                    <p>Searching...</p>
+                    <p >Searching...</p>
                 </li>
 
             </ul>

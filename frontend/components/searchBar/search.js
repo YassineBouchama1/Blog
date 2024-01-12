@@ -19,6 +19,7 @@ closeSearch.addEventListener('click', function () {
     searchBar.classList.add("hidden")
 })
 
+
 async function onLoadSearch() {
     searching_Loading.classList.remove('hidden')
     console.log('onsearch')
@@ -27,11 +28,13 @@ async function onLoadSearch() {
         const data = await routePromise.json();
         console.log(data)
         resultLength.textContent = data.length
-        searching_Loading.classList.add('hidden')
         if (data.length > 0) {
 
+
+            searching_Loading.classList.add('hidden')
             resultSearch.innerHTML = '';
             data.forEach(item => builderResultSearch(item));
+
         } else {
             searching_Loading.classList.add('hidden')
 
