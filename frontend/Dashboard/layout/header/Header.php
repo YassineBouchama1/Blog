@@ -16,7 +16,15 @@
 
       <input class=" peer h-full w-full outline-none text-sm text-gray-700 pr-2" type="text" id="search" placeholder="Search something.." />
     </div>
+    <div class="group ">
 
+      <a href="http://localhost/blog/frontend/"><i class=" ti ti-home text-3xl cursor-pointer"></i></a>
+
+      <div class=" group-hover:flex hidden popover absolute bg-gray-700 border shadow-md mt-2 px-2   py-1 rounded-lg">
+
+        <p class="text-white ">Home</p>
+      </div>
+    </div>
     <!-- switcher drk mode -->
     <div>
 
